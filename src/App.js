@@ -6,8 +6,8 @@ class App extends Component {
   render() {
     return (
       <main>
-        <HeaderApp></HeaderApp>
-        <TarotTable></TarotTable>
+        <HeaderApp/>
+        <TarotTable/>
       </main>
     );
   }

@@ -48,7 +48,7 @@
     "webpack-manifest-plugin": "1.1.0",
     "whatwg-fetch": "1.0.0"
   },
-  "dependencies": {
+  "dependencies": {    
     "react": "^15.4.2",
     "react-dom": "^15.4.2"
   },
