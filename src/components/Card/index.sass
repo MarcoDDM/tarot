@@ -1,50 +1,55 @@
-.card
+.wrap-card
   position: relative
-  width: 150px
-  height: 210px
-  top: 0
-  left: 0
-  cursor: pointer
-  border: 0
-  border-radius: 4px
-  padding: 0
-  margin-left: 10px
-  margin-bottom: 10px
-  outline: none
-  overflow: hidden
   display: inline-block
-  transition: all 0.3s ease .1s
-  background: transparent
-  z-index: 1
+  margin-left: 10px
 
-  &.frontside
-    transform: rotateY(180deg)
-    transition: all 0.3s ease .1s
-    z-index: 10
-
-    .front
-      z-index: 10
-
-  div
-    position: absolute
-    top: 0
-    left: 0
+  .card
+    position: relative
     width: 150px
     height: 210px
+    top: 0
+    left: 0
+    cursor: pointer
+    border: 0
+    border-radius: 4px
+    padding: 0
+    margin-bottom: 10px
+    outline: none
+    overflow: hidden
+    transition: all 0.3s ease .1s
+    background: transparent
+    z-index: 1
 
-    &.front
-      background-color: #FFF
-      background-size: contain
-      background-repeat: no-repeat
-      background-position: center
-      transition: all 0.2s ease .1s
+    &.frontside
       transform: rotateY(180deg)
-      z-index: 0
+      transition: all 0.3s ease .1s
+      z-index: 10
 
-    &.back
-      z-index: 1
+      .front
+        visibility: visible
+        z-index: 10
+
+    div
+      position: absolute
+      top: 0
+      left: 0
       width: 150px
-      background-size: contain
-      background-repeat: no-repeat
-      background-position: center
-      background-image: url(../../assets/img/backside-card.jpg)
+      height: 210px
+
+      &.front
+        background-color: #FFF
+        background-size: contain
+        background-repeat: no-repeat
+        background-position: center
+        transition: all 0.2s ease .1s
+        transform: rotateY(180deg)
+        z-index: 0
+        visibility: hidden
+
+      &.back
+        z-index: 1
+        width: 150px
+        background-size: contain
+        background-repeat: no-repeat
+        background-position: center
+        background-image: url(../../assets/img/backside-card.jpg)

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import CardDetails from './CardDetails';
 import './index.sass';
 
 class Card extends Component {
@@ -7,25 +8,34 @@ class Card extends Component {
     super(props);
 
     this.state = {
-      clicked: false
+      clicked: false,
+      showCardDetails: false
     }
   }
 
   cardClick(e){
     e.preventDefault();
+
+    if(this.state.clicked){
+      this.setState({ showCardDetails: true });
+      return;
+    }
     this.setState({ clicked: true });
     this.props.handleChoice(this.props.cardNumber);
   }
 
   render(){
-    const className = `card ${this.state.clicked ? 'clicked frontside' : ''}`;
-    const card = require(`../../assets/img/major-arcanums/rider-waite/${this.props.cardNumber}.png`);
+    let className = `card ${this.state.clicked ? 'clicked frontside' : ''}`;
+    let card = require(`../../assets/img/major-arcanums/rider-waite/${this.props.cardNumber}.png`);
 
     return(
-      <button className={className} onClick={this.cardClick.bind(this)}>
-        <div className="back"></div>
-        <div className="front" style={{ backgroundImage: `url(${card})` }}></div>
-      </button>
+      <div className='wrap-card'>
+        <button className={className} onClick={this.cardClick.bind(this)}>
+          <div className="back"></div>
+          <div className="front" style={{ backgroundImage: `url(${card})` }}></div>
+        </button>
+        <CardDetails cardNumber={this.props.cardNumber} show={this.state.showCardDetails} />
+      </div>
     )
   }
 

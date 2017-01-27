@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Card from '../Card';
 import './index.sass';
 
-
 class TarotDeck extends Component {
 
   constructor(props){
@@ -16,8 +15,14 @@ class TarotDeck extends Component {
 
   componentWillMount(){
     let cards = [];
-    for (let i = 0; i < 21; i++)
-      cards.push(<Card key={i} cardNumber={i} handleChoice={this.handleChoice.bind(this)} />);
+    for (let i = 0; i < 21; i++){
+      cards.push(
+        <Card key={i}
+          cardNumber={i}
+          handleChoice={this.handleChoice.bind(this)}
+        />
+      );
+    }
 
     this.shuffleCards(cards);
   }

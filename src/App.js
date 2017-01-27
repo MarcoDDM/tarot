@@ -7,7 +7,7 @@ class App extends Component {
     return (
       <main>
         <HeaderApp/>
-        <TarotTable/>
+        <TarotTable/>        
       </main>
     );
   }
