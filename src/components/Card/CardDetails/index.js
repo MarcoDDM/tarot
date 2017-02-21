@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import './index.sass';
+import React, { Component } from 'react'
+import './index.sass'
 
 class CardDetails extends Component {
 
   render(){
-    let className = `card-details ${!this.props.show ? 'hidden' : ''}`;
+    let className = `card-details ${!this.props.show ? 'hidden' : ''}`
 
     return(
       <div className={className}>
@@ -15,4 +15,4 @@ class CardDetails extends Component {
 
 }
 
-export default CardDetails;
+export default CardDetails

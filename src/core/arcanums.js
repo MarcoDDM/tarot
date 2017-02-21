@@ -23,4 +23,4 @@ module.exports = {
 		20: { arcanum: 'O Julgamento' },
 		21: { arcanum: 'O Mundo' }
 	}
-};
+}

@@ -1,5 +1,5 @@
-import React from 'react';
-import './index.sass';
+import React from 'react'
+import './index.sass'
 
 function HeaderApp(){
   return (
@@ -9,4 +9,4 @@ function HeaderApp(){
   )
 }
 
-export default HeaderApp;
+export default HeaderApp

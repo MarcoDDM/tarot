@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import CardDetails from './CardDetails';
-import './index.sass';
+import React, { Component } from 'react'
+import CardDetails from './CardDetails'
+import './index.sass'
 
 class Card extends Component {
 
   constructor(props){
-    super(props);
+    super(props)
 
     this.state = {
       clicked: false,
@@ -14,19 +14,19 @@ class Card extends Component {
   }
 
   cardClick(e){
-    e.preventDefault();
+    e.preventDefault()
 
     if(this.state.clicked){
-      this.setState({ showCardDetails: true });
-      return;
+      this.setState({ showCardDetails: true })
+      return
     }
-    this.setState({ clicked: true });
-    this.props.handleChoice(this.props.cardNumber);
+    this.setState({ clicked: true })
+    this.props.handleChoice(this.props.cardNumber)
   }
 
   render(){
-    let className = `card ${this.state.clicked ? 'clicked frontside' : ''}`;
-    let card = require(`../../assets/img/major-arcanums/rider-waite/${this.props.cardNumber}.png`);
+    let className = `card ${this.state.clicked ? 'clicked frontside' : ''}`
+    let card = require(`../../assets/img/major-arcanums/rider-waite/${this.props.cardNumber}.png`)
 
     return(
       <div className='wrap-card'>
@@ -41,4 +41,4 @@ class Card extends Component {
 
 }
 
-export default Card;
+export default Card

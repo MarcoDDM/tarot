@@ -1,42 +1,42 @@
-import React, { Component } from 'react';
-import Card from '../Card';
-import './index.sass';
+import React, { Component } from 'react'
+import Card from '../Card'
+import './index.sass'
 
 class TarotDeck extends Component {
 
   constructor(props){
-    super(props);
+    super(props)
 
     this.state = {
       cards: [],
       choices: []
-    };
+    }
   }
 
   componentWillMount(){
-    let cards = [];
+    let cards = []
     for (let i = 0; i < 21; i++){
       cards.push(
         <Card key={i}
           cardNumber={i}
           handleChoice={this.handleChoice.bind(this)}
         />
-      );
+      )
     }
 
-    this.shuffleCards(cards);
+    this.shuffleCards(cards)
   }
 
   handleChoice(choice){
-    let choices = this.state.choices;
-    choices.push(choice);
-    this.setState({ choices });
+    let choices = this.state.choices
+    choices.push(choice)
+    this.setState({ choices })
   }
 
   shuffleCards(cards=null){
-    cards = cards || this.state.cards;
-    cards.sort(() => .5 - Math.random());
-    this.setState({ cards: cards });
+    cards = cards || this.state.cards
+    cards.sort(() => .5 - Math.random())
+    this.setState({ cards: cards })
   }
 
 
@@ -45,8 +45,8 @@ class TarotDeck extends Component {
       <div className="tarot-deck">
         {this.state.cards}
       </div>
-    );
+    )
   }
 }
 
-export default TarotDeck;
+export default TarotDeck
