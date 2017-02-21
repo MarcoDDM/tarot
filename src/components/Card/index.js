@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import CardDetails from './CardDetails'
 import './index.sass'
 
 class Card extends Component {
@@ -8,18 +7,15 @@ class Card extends Component {
     super(props)
 
     this.state = {
-      clicked: false,
-      showCardDetails: false
+      clicked: false
     }
   }
 
   cardClick(e){
     e.preventDefault()
 
-    if(this.state.clicked){
-      this.setState({ showCardDetails: true })
-      return
-    }
+    if(this.state.clicked) return
+
     this.setState({ clicked: true })
     this.props.handleChoice(this.props.cardNumber)
   }
@@ -34,7 +30,6 @@ class Card extends Component {
           <div className="back"></div>
           <div className="front" style={{ backgroundImage: `url(${card})` }}></div>
         </button>
-        <CardDetails cardNumber={this.props.cardNumber} show={this.state.showCardDetails} />
       </div>
     )
   }
