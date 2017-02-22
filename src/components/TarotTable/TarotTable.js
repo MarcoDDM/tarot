@@ -11,7 +11,7 @@ class TarotTable extends Component {
     this.state = {
       cards: [],
       choices: [],
-      showCardsReader: false
+      showCardsReader: !false
     }
   }
 
@@ -27,6 +27,7 @@ class TarotTable extends Component {
   render() {
     return (
       <div className="tarot-table">
+        <button className={this.state.showCardsReader ? 'show' : 'hide'}>Novo</button>
         <SpreadCards
           show={!this.state.showCardsReader}
           handleChoice={choice => this.handleChoice(choice)}
