@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import Card from '../Card'
-import ReadingCards from './components/ReadingCards'
+import SpreadCards from '../SpreadCards'
+import CardsReader from '../CardsReader'
 import './TarotTable.sass'
 
 class TarotTable extends Component {
@@ -10,41 +10,31 @@ class TarotTable extends Component {
 
     this.state = {
       cards: [],
-      choices: []
+      choices: [],
+      showCardsReader: false
     }
-  }
-
-  componentWillMount(){
-    let cards = []
-    for (let i = 0; i < 21; i++){
-      cards.push(
-        <Card key={i}
-          cardNumber={i}
-          handleChoice={this.handleChoice.bind(this)}
-        />
-      )
-    }
-
-    this.shuffleCards(cards)
   }
 
   handleChoice(choice){
-    let choices = this.state.choices
+    const choices = this.state.choices
     choices.push(choice)
-    this.setState({ choices })
-  }
 
-  shuffleCards(cards=null){
-    cards = cards || this.state.cards
-    cards.sort(() => .5 - Math.random())
-    this.setState({ cards: cards })
-  }
+    const showCardsReader = false || choices.length === 3
 
+    this.setState({ choices, showCardsReader })
+  }
 
   render() {
     return (
       <div className="tarot-table">
-        {this.state.cards}
+        <SpreadCards
+          show={!this.state.showCardsReader}
+          handleChoice={choice => this.handleChoice(choice)}
+        />
+        <CardsReader
+          show={this.state.showCardsReader}
+          cards={this.state.choices}
+        />
       </div>
     )
   }
