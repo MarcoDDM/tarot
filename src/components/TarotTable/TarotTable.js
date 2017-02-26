@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import SpreadCards from '../SpreadCards'
-import CardsReader from '../CardsReader'
 import './TarotTable.sass'
 
 class TarotTable extends Component {
@@ -10,32 +9,27 @@ class TarotTable extends Component {
 
     this.state = {
       cards: [],
-      choices: [],
-      showCardsReader: !false
+      choices: []
     }
   }
 
   handleChoice(choice){
     const choices = this.state.choices
     choices.push(choice)
+    this.setState({ choices })
 
-    const showCardsReader = false || choices.length === 3
-
-    this.setState({ choices, showCardsReader })
+    if(choices.length === 3)
+      setTimeout(() =>
+        this.props.router.push(`/cards-reader/${choices}`), 500)
   }
 
   render() {
     return (
       <div className="tarot-table">
-        <button className={this.state.showCardsReader ? 'show' : 'hide'}>Novo</button>
         <SpreadCards
           show={!this.state.showCardsReader}
-          handleChoice={choice => this.handleChoice(choice)}
-        />
-        <CardsReader
-          show={this.state.showCardsReader}
-          cards={this.state.choices}
-        />
+          handleChoice={choice => this.handleChoice(choice)}>
+        </SpreadCards>
       </div>
     )
   }

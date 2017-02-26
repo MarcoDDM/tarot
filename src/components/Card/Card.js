@@ -13,9 +13,7 @@ class Card extends Component {
 
   cardClick(e){
     e.preventDefault()
-
     if(this.state.clicked) return
-
     this.setState({ clicked: true })
     this.props.handleChoice(this.props.cardNumber)
   }

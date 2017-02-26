@@ -17,75 +17,75 @@ module.exports = {
       description: 'A Imperatriz geralmente tem significância positiva. Intimamente ligada ao corpo físico e mundo material, dela provém o prazer nos sentidos e a abundância da vida em suas diferentes formas. A Imperatriz nos indica um tempo de boas colheitas, ou seja, você está colhendo as sementes que plantou. Esta carta simboliza a riqueza e a recompensa pelos esforços que foram feitos. Ela simboliza, também, o esforço que é necessário fazer para superar as provas, e indica a vitória através da sabedoria e do bom uso das palavras, da diplomacia e da sensibilidade. Acima de tudo, A Imperatriz representa o arquétipo da Mãe, e com frequência pode pressagiar a concepção e o nascimento de uma criança. Por representar o arquétipo da Mãe, certamente você se encontra em um ambiente seguro e isento de perigos. Aproveite este momento de abundância, criatividade e produtividade para plantar novas sementes, que lhe renderão uma colheita generosa no futuro. Faça um esforço para abrir-se ao seu amor incondicional.',
     },
 		4: {
-      name: 'O Imperador',      
+      name: 'O Imperador',
       description: '',
     },
 		5: {
-      name: 'O Papa',      
+      name: 'O Papa',
       description: '',
     },
 		6: {
-      name: 'Os Enamorados',      
+      name: 'Os Enamorados',
       description: '',
     },
 		7: {
-      name: 'O Carro',      
+      name: 'O Carro',
       description: '',
     },
 		8: {
-      name: 'A Força',      
+      name: 'A Força',
       description: '',
     },
 		9: {
-      name: 'O Eremita',      
+      name: 'O Eremita',
       description: '',
     },
 		10: {
-      name: 'A Roda da Fortuna',      
+      name: 'A Roda da Fortuna',
       description: '',
     },
 		11: {
-      name: 'A Justiça',      
+      name: 'A Justiça',
       description: '',
     },
 		12: {
-      name: 'O Enforcado',      
+      name: 'O Enforcado',
       description: '',
     },
 		13: {
-      name: 'A Morte',      
+      name: 'A Morte',
       description: '',
     },
 		14: {
-      name: 'A Temperança',      
+      name: 'A Temperança',
       description: '',
     },
 		15: {
-      name: 'O Diabo',      
+      name: 'O Diabo',
       description: '',
     },
 		16: {
-      name: 'A Torre',      
+      name: 'A Torre',
       description: '',
     },
 		17: {
-      name: 'A Estrela',      
+      name: 'A Estrela',
       description: '',
     },
 		18: {
-      name: 'A Lua',      
+      name: 'A Lua',
       description: '',
     },
 		19: {
-      name: 'O Sol',      
+      name: 'O Sol',
       description: '',
     },
 		20: {
-      name: 'O Julgamento',      
+      name: 'O Julgamento',
       description: '',
     },
 		21: {
-      name: 'O Mundo',      
+      name: 'O Mundo',
       description: '',
     }
 	}

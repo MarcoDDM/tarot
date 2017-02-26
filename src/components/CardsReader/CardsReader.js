@@ -1,24 +1,18 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router'
 import arcanums from '../../helpers/arcanums'
 import './CardsReader.sass'
 
 class CardsReader extends Component {
 
-  constructor(props){
-    super(props)
-    console.log()
-  }
-
   render(){
-    let className = `wrap-cards-reader ${this.props.show ? 'show' : 'hide'}`
-    let cards = this.props.cards
-
-    cards = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21]
+    let cards = this.props.params.cards.split(',')
 
     let cardInfo = cards.map(card => {
+      let cardImage = require(`../../assets/img/major-arcanums/rider-waite/${card}.png`)
       return (
         <li key={card}>
-          <img src={require(`../../assets/img/major-arcanums/rider-waite/${card}.png`)} alt="" />
+          <img src={cardImage} alt={arcanums.major[card].name} />
           <div className="wrap-text">
             <h2>{arcanums.major[card].name} - Arcano {card}</h2>
             <p>{arcanums.major[card].description}</p>
@@ -28,7 +22,8 @@ class CardsReader extends Component {
     })
 
     return (
-      <div className={className}>
+      <div className='wrap-cards-reader'>
+        <Link to="/" className="btn-back">Novo</Link>
         <ul>
           {cardInfo}
         </ul>

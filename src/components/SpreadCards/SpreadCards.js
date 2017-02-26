@@ -20,8 +20,7 @@ class SpreadCards extends Component {
         <Card
           key={i}
           cardNumber={i}
-          handleChoice={() => this.handleChoice(i)}
-        />
+          handleChoice={() => this.handleChoice(i)} />
       )
     }
 
