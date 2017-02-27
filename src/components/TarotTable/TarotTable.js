@@ -1,33 +1,25 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
+import { chooseCard } from '../../actions'
 import SpreadCards from '../SpreadCards'
+import store from '../../store';
 import './TarotTable.sass'
 
 class TarotTable extends Component {
 
-  constructor(props){
-    super(props)
-
-    this.state = {
-      cards: [],
-      choices: []
-    }
-  }
-
   handleChoice(choice){
-    const choices = this.state.choices
-    choices.push(choice)
-    this.setState({ choices })
+    store.dispatch(chooseCard(choice))
+    let choices = store.getState().choiceState
 
     if(choices.length === 3)
       setTimeout(() =>
-        this.props.router.push(`/cards-reader/${choices}`), 500)
+        this.props.router.push(`/cards-reader`), 500)
   }
 
   render() {
     return (
       <div className="tarot-table">
         <SpreadCards
-          show={!this.state.showCardsReader}
           handleChoice={choice => this.handleChoice(choice)}>
         </SpreadCards>
       </div>
@@ -35,4 +27,10 @@ class TarotTable extends Component {
   }
 }
 
-export default TarotTable
+const mapStateToProps = function(store) {
+  return {
+    choiceState: store.choiceState.choices
+  };
+};
+
+export default connect(mapStateToProps)(TarotTable);

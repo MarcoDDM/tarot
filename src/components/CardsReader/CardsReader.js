@@ -1,12 +1,18 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router'
+import { clearChoices } from '../../actions'
+import store from '../../store'
 import arcanums from '../../helpers/arcanums'
 import './CardsReader.sass'
 
 class CardsReader extends Component {
 
+  backButton(){
+    store.dispatch(clearChoices())
+    this.props.router.push('/')
+  }
+
   render(){
-    let cards = this.props.params.cards.split(',')
+    let cards = store.getState().choiceState    
 
     let cardInfo = cards.map(card => {
       let cardImage = require(`../../assets/img/major-arcanums/rider-waite/${card}.png`)
@@ -23,7 +29,7 @@ class CardsReader extends Component {
 
     return (
       <div className='wrap-cards-reader'>
-        <Link to="/" className="btn-back">Novo</Link>
+        <a className="btn-back" onClick={() => this.backButton()}>Novo</a>
         <ul>
           {cardInfo}
         </ul>

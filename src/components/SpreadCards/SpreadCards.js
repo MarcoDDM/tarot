@@ -40,7 +40,7 @@ class SpreadCards extends Component {
 
   render(){
     return (
-      <div className={this.props.show ? 'show' : 'hide'}>
+      <div>
         {this.state.cards}
       </div>
     )
