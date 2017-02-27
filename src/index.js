@@ -4,7 +4,7 @@ import { Provider } from 'react-redux'
 import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 import App from './App'
 import TarotTable from './components/TarotTable'
-import CardsReader from './components/CardsReader'
+import Result from './components/Result'
 import store from './store'
 
 ReactDOM.render(
@@ -12,7 +12,7 @@ ReactDOM.render(
     <Router history={browserHistory}>
       <Route path="/" component={App}>
         <IndexRoute component={TarotTable}/>
-        <Route path="cards-reader" component={CardsReader} />
+        <Route path="result" component={Result} />
       </Route>
     </Router>
   </Provider>,

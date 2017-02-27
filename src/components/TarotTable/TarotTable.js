@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux';
 import { chooseCard } from '../../actions'
 import SpreadCards from '../SpreadCards'
 import store from '../../store';
@@ -11,9 +10,11 @@ class TarotTable extends Component {
     store.dispatch(chooseCard(choice))
     let choices = store.getState().choiceState
 
+    console.log(this.props)
+
     if(choices.length === 3)
       setTimeout(() =>
-        this.props.router.push(`/cards-reader`), 500)
+        this.props.router.push(`/result`), 500)
   }
 
   render() {
@@ -27,10 +28,4 @@ class TarotTable extends Component {
   }
 }
 
-const mapStateToProps = function(store) {
-  return {
-    choiceState: store.choiceState.choices
-  };
-};
-
-export default connect(mapStateToProps)(TarotTable);
+export default TarotTable;

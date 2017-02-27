@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import { clearChoices } from '../../actions'
 import store from '../../store'
 import arcanums from '../../helpers/arcanums'
-import './CardsReader.sass'
+import './Result.sass'
 
-class CardsReader extends Component {
+class Result extends Component {
 
   backButton(){
     store.dispatch(clearChoices())
@@ -12,7 +12,9 @@ class CardsReader extends Component {
   }
 
   render(){
-    let cards = store.getState().choiceState    
+    let cards = store.getState().choiceState
+
+    // cards = [0,1,2,3,4,5,6,7,8,9]
 
     let cardInfo = cards.map(card => {
       let cardImage = require(`../../assets/img/major-arcanums/rider-waite/${card}.png`)
@@ -38,4 +40,4 @@ class CardsReader extends Component {
   }
 }
 
-export default CardsReader
+export default Result
