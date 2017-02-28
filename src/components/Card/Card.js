@@ -7,19 +7,19 @@ class Card extends Component {
     super(props)
 
     this.state = {
-      clicked: false
+      selected: false
     }
   }
 
   cardClick(e){
     e.preventDefault()
-    if(this.state.clicked) return
-    this.setState({ clicked: true })
+    if(this.state.selected) return
+    this.setState({ selected: true })
     this.props.handleChoice(this.props.cardNumber)
   }
 
   render(){
-    let className = `card ${this.state.clicked ? 'clicked frontside' : ''}`
+    let className = `card ${this.state.selected ? 'frontside' : ''}`
     let card = require(`../../assets/img/major-arcanums/rider-waite/${this.props.cardNumber}.png`)
 
     return(
