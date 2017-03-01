@@ -13,7 +13,7 @@ ReactDOM.render(
     <Router history={browserHistory}>
       <Route path="/" component={App}>
         <IndexRoute component={Index}/>
-        <Route path="table" component={TarotTable} />
+        <Route path="tarot-table" component={TarotTable} />
         <Route path="result" component={Result} />
       </Route>
     </Router>

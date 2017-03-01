@@ -23,7 +23,7 @@ class Card extends Component {
     let card = require(`../../assets/img/major-arcanums/rider-waite/${this.props.cardNumber}.png`)
 
     return(
-      <div className='wrapper'>
+      <div className='the-card'>
         <button className={className} onClick={this.cardClick.bind(this)}>
           <div className="back"></div>
           <div className="front" style={{ backgroundImage: `url(${card})` }}></div>

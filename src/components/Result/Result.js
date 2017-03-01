@@ -29,7 +29,7 @@ class Result extends Component {
     })
 
     return (
-      <div className='wrapper'>
+      <div className='result'>
         <a className="btn-back" onClick={() => this.backButton()}>Novo</a>
         <ul>
           {cardInfo}

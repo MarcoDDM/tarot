@@ -3,7 +3,7 @@ import './HeaderApp.sass'
 
 function HeaderApp(){
   return (
-    <div className="wrapper">
+    <div className="header-app">
       <h1>MyTarot</h1>
     </div>
   )

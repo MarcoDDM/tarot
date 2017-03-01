@@ -1,20 +1,10 @@
 import { combineReducers } from 'redux'
-
-const choiceReducer = (state = [], action) => {
-  switch (action.type) {
-    case 'CHOOSE_CARD':
-      return [ ...state ].concat(action.choice)
-
-    case 'CLEAR_CHOICES':
-      return []
-
-    default:
-      return state
-  }  
-}
+import choiceReducer from './choiceReducer'
+import drawingReducer from './drawingReducer'
 
 const reducers = combineReducers({
-  choiceState: choiceReducer
+  choiceState: choiceReducer,
+  drawingState: drawingReducer
 })
 
 export default reducers
