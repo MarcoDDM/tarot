@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Card from '../Card'
+import Card from '../Card/Card'
 //import './SpreadCards.sass'
 
 class SpreadCards extends Component {

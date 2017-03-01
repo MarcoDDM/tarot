@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { chooseCard } from '../../actions'
-import SpreadCards from '../SpreadCards'
+import SpreadCards from '../SpreadCards/SpreadCards'
 import store from '../../store';
 import './TarotTable.sass'
 
