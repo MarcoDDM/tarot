@@ -12,9 +12,7 @@ class Result extends Component {
   }
 
   render(){
-    let cards = store.getState().choiceState
-
-    // cards = [0,1,2,3,4,5,6,7,8,9]
+    let cards = store.getState().choiceState    
 
     let cardInfo = cards.map(card => {
       let cardImage = require(`../../assets/img/major-arcanums/rider-waite/${card}.png`)
@@ -23,6 +21,7 @@ class Result extends Component {
           <img src={cardImage} alt={arcanums.major[card].name} />
           <div className="wrap-text">
             <h2>{arcanums.major[card].name} - Arcano {card}</h2>
+            <h3>{arcanums.major[card].attribute}</h3>
             <p>{arcanums.major[card].description}</p>
           </div>
         </li>
