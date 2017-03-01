@@ -12,7 +12,7 @@ class Result extends Component {
   }
 
   render(){
-    let cards = store.getState().choiceState    
+    let cards = store.getState().choiceState
 
     let cardInfo = cards.map(card => {
       let cardImage = require(`../../assets/img/major-arcanums/rider-waite/${card}.png`)
@@ -29,7 +29,7 @@ class Result extends Component {
     })
 
     return (
-      <div className='wrap-cards-reader'>
+      <div className='wrapper'>
         <a className="btn-back" onClick={() => this.backButton()}>Novo</a>
         <ul>
           {cardInfo}

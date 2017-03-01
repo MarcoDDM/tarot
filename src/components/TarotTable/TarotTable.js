@@ -19,7 +19,7 @@ class TarotTable extends Component {
 
   render() {
     return (
-      <div className="tarot-table">
+      <div className="wrapper">
         <SpreadCards
           handleChoice={choice => this.handleChoice(choice)}>
         </SpreadCards>
