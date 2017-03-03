@@ -6,6 +6,10 @@ import './Result.sass'
 
 class Result extends Component {
 
+  componentWillMount(){    
+    window.scrollTo(0, 0)
+  }
+
   backButton(){
     store.dispatch(clearChoices())
     this.props.router.push('/')

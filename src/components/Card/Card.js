@@ -19,15 +19,20 @@ class Card extends Component {
   }
 
   render(){
-    let className = `card ${this.state.selected ? 'frontside' : ''}`
-    let card = require(`../../assets/img/major-arcanums/rider-waite/${this.props.cardNumber}.png`)
+    let className = `${this.state.selected ? 'card show-frontside' : 'card'}`
+    let backside = require(`../../assets/img/backside-card-${this.props.backsideCardStyle}.png`)
+    let frontside = require(`../../assets/img/major-arcanums/rider-waite/${this.props.cardNumber}.png`)
 
     return(
-      <div className='the-card'>
-        <button className={className} onClick={this.cardClick.bind(this)}>
-          <div className="back"></div>
-          <div className="front" style={{ backgroundImage: `url(${card})` }}></div>
-        </button>
+      <div className="col-lg-2 col-md-2 col-sm-2 col-xs-3">
+        <div className={className} onClick={this.cardClick.bind(this)}>
+        <div className="backside">
+          <img src={backside} className=" img-responsive" alt="Back card"/>
+        </div>
+        <div className="frontside">
+          <img src={frontside} className=" img-responsive" alt="Front card"/>
+        </div>
+        </div>
       </div>
     )
   }

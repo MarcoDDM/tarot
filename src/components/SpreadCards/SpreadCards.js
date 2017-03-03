@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import Card from '../Card/Card'
-//import './SpreadCards.sass'
 
 class SpreadCards extends Component {
 
@@ -8,8 +7,7 @@ class SpreadCards extends Component {
     super(props)
 
     this.state = {
-      cards: [],
-      choices: []
+      cards: []
     }
   }
 
@@ -20,6 +18,7 @@ class SpreadCards extends Component {
         <Card
           key={i}
           cardNumber={i}
+          backsideCardStyle={1}
           handleChoice={() => this.handleChoice(i)} />
       )
     }
@@ -40,7 +39,7 @@ class SpreadCards extends Component {
 
   render(){
     return (
-      <div>
+      <div className="row">
         {this.state.cards}
       </div>
     )

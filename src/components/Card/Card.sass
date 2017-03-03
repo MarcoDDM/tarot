@@ -1,55 +1,31 @@
-.the-card
+.card
   position: relative
-  display: inline
-  margin-left: 10px
+  margin-bottom: 2vw
+  cursor: pointer
 
-  .card
-    position: relative
-    width: 150px
-    height: 210px
+  .frontside
+    position: absolute
     top: 0
-    left: 0
-    cursor: pointer
-    border: 0
-    border-radius: 4px
-    padding: 0
-    margin-bottom: 10px
-    outline: none
-    overflow: hidden
-    transition: all 0.3s ease .1s
-    background: transparent
+    right: 0
+
+  .frontside
+    transition: all 0.2s ease .1s
+    transform: rotateY(180deg)
+    z-index: 0
+    visibility: hidden
+
+  .backside
     z-index: 1
 
-    &.frontside
+  &.show-frontside
+    transform: rotateY(180deg)
+    transition: all 0.2s ease .1s
+
+    .frontside
+      visibility: visible
+      z-index: 1
+
+    .backside
       transform: rotateY(180deg)
-      transition: all 0.3s ease .1s
-      z-index: 10
-
-      .front
-        visibility: visible
-        z-index: 10
-
-    div
-      position: absolute
-      top: 0
-      left: 0
-      width: 150px
-      height: 210px
-
-      &.front
-        background-color: #FFF
-        background-size: contain
-        background-repeat: no-repeat
-        background-position: center
-        transition: all 0.2s ease .1s
-        transform: rotateY(180deg)
-        z-index: 0
-        visibility: hidden
-
-      &.back
-        z-index: 1
-        width: 150px
-        background-size: contain
-        background-repeat: no-repeat
-        background-position: center
-        background-image: url(../../assets/img/backside-card.jpg)
+      transition: all 0.2s ease .1s
+      z-index: 0
