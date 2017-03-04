@@ -35,7 +35,7 @@ class TarotTable extends Component {
     if(choices.length === this.state.drawingType){
       this.setState({ canChoice: false })
       setTimeout(() =>
-        this.props.router.push(`/result`), 500)
+        this.props.router.push(`/reading`), 500)
     }
   }
 

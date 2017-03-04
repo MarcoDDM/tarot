@@ -5,7 +5,7 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 import App from './App'
 import Index from './components/Index/Index'
 import TarotTable from './components/TarotTable/TarotTable'
-import Result from './components/Result/Result'
+import Reading from './components/Reading/Reading'
 import store from './store'
 
 ReactDOM.render(
@@ -14,7 +14,7 @@ ReactDOM.render(
       <Route path="/" component={App}>
         <IndexRoute component={Index}/>
         <Route path="tarot-table" component={TarotTable} />
-        <Route path="result" component={Result} />
+        <Route path="reading" component={Reading} />
       </Route>
     </Router>
   </Provider>,

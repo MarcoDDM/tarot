@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import store from '../../store'
 import arcanums from '../../helpers/arcanums'
-import './Result.sass'
+import './Reading.sass'
 
-class Result extends Component {
+class Reading extends Component {
 
   constructor(){
     super()
@@ -15,7 +15,7 @@ class Result extends Component {
 
   componentWillMount(){
     let cards = store.getState().choiceState
-    
+
     if(!cards || !cards.length){
       this.goToHome()
       return
@@ -49,7 +49,7 @@ class Result extends Component {
     })
 
     return (
-      <div className="result">
+      <div className="reading">
         <a className="btn-back" onClick={() => this.goToHome()}>Novo</a>
         <div className="row">
           {cardInfo}
@@ -59,4 +59,4 @@ class Result extends Component {
   }
 }
 
-export default Result
+export default Reading
