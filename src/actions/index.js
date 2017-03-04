@@ -1,6 +1,6 @@
-export function chooseDrawing(choice) {
+export function chooseSpreadType(choice) {
   return {
-    type: 'CHOOSE_DRAWING',
+    type: 'CHOOSE_SPREAD_TYPE',
     choice
   }
 }

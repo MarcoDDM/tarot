@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux'
 import choiceReducer from './choiceReducer'
-import drawingReducer from './drawingReducer'
+import spreadReducer from './spreadReducer'
 
 const reducers = combineReducers({
   choiceState: choiceReducer,
-  drawingState: drawingReducer
+  spreadState: spreadReducer
 })
 
 export default reducers

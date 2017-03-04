@@ -11,20 +11,20 @@ class TarotTable extends Component {
 
     this.state = {
       canChoice: true,
-      drawingType: 0
+      spreadType: 0
     }
   }
 
   componentWillMount(){
-    let drawingType = store.getState().drawingState
+    let spreadType = store.getState().spreadState
 
-    if(!drawingType){
+    if(!spreadType){
       this.props.router.push('/')
       return
     }
 
     store.dispatch(clearChoices())
-    this.setState({ drawingType });
+    this.setState({ spreadType });
   }
 
   handleChoice(choice){
@@ -32,7 +32,8 @@ class TarotTable extends Component {
 
     store.dispatch(chooseCard(choice))
     let choices = store.getState().choiceState
-    if(choices.length === this.state.drawingType){
+
+    if(choices.length === this.state.spreadType){
       this.setState({ canChoice: false })
       setTimeout(() =>
         this.props.router.push(`/reading`), 500)

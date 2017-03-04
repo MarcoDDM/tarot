@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import { chooseDrawing } from '../../actions'
+import { chooseSpreadType } from '../../actions'
 import store from '../../store'
 import './Index.sass'
 
 class Index extends Component {
 
   handleChoice(choice){
-    store.dispatch(chooseDrawing(choice))
+    store.dispatch(chooseSpreadType(choice))
     this.props.router.push(`/tarot-table`)
   }
 
