@@ -1,6 +1,6 @@
-const drawingReducer = (state = {}, action) => {
+const drawingReducer = (state = null, action) => {
   switch (action.type) {
-    case 'CHOOSE_DRAWING':      
+    case 'CHOOSE_DRAWING':
       return action.choice
 
     case 'CLEAR_DRAWING':

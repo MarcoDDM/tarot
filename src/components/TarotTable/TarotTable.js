@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { chooseCard } from '../../actions'
+import { chooseCard, clearChoices } from '../../actions'
 import SpreadCards from '../SpreadCards/SpreadCards'
 import store from '../../store';
 import './TarotTable.sass'
@@ -12,13 +12,19 @@ class TarotTable extends Component {
     this.state = {
       canChoice: true,
       drawingType: 0
-    }    
+    }
   }
 
   componentWillMount(){
-    this.setState({
-      drawingType: store.getState().drawingState
-    });
+    let drawingType = store.getState().drawingState
+
+    if(!drawingType){
+      this.props.router.push('/')
+      return
+    }
+
+    store.dispatch(clearChoices())
+    this.setState({ drawingType });
   }
 
   handleChoice(choice){
@@ -26,7 +32,6 @@ class TarotTable extends Component {
 
     store.dispatch(chooseCard(choice))
     let choices = store.getState().choiceState
-
     if(choices.length === this.state.drawingType){
       this.setState({ canChoice: false })
       setTimeout(() =>

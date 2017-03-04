@@ -1,4 +1,4 @@
-const choiceReducer = (state = [], action) => {
+const choiceReducer = (state = null, action) => {
   switch (action.type) {
     case 'CHOOSE_CARD':
       return [ ...state ].concat(action.choice)

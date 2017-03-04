@@ -26,10 +26,9 @@ class SpreadCards extends Component {
     this.shuffleCards(cards)
   }
 
-  shuffleCards(cardsToShuffle=null){
-    const cards = cardsToShuffle || this.state.cards
+  shuffleCards(cardsToShuffle){
+    const cards = cardsToShuffle
     cards.sort(() => .5 - Math.random())
-
     this.setState({ cards })
   }
 
