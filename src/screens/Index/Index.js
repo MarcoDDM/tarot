@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Row from '../../components/Row/Row'
+import { Row, Col } from '../../components/Grid/Grid'
 import ButtonSpreadType from '../../components/ButtonSpreadType/ButtonSpreadType'
 import { chooseSpreadType } from '../../actions'
 import store from '../../store'
@@ -17,12 +17,12 @@ class Index extends Component {
       <div className="index">
         <h1>Escolha o tipo de tiragem:</h1>
         <Row>
-          <div className="col-lg-3 col-md-4 col-sm-6 col-xs-6 col-lg-offset-3">
-            <ButtonSpreadType type={1} click={choice => this.handleChoice(choice)} />
-          </div>
-          <div className="col-lg-3 col-md-4 col-sm-6 col-xs-6">
-            <ButtonSpreadType type={3} click={choice => this.handleChoice(choice)} />
-          </div>
+          <Col lg="3" md="4" sm="6" xs="6" offset={['lg', 3]}>
+            <ButtonSpreadType type="1" click={choice => this.handleChoice(choice)} />
+          </Col>
+          <Col lg="3" md="4" sm="6" xs="6">
+            <ButtonSpreadType type="3" click={choice => this.handleChoice(choice)} />
+          </Col>
         </Row>
       </div>
     )

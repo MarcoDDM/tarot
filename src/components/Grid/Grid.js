@@ -1,6 +1,14 @@
 import React from 'react'
 
-function Col(props){
+export function Row(props){
+  return(
+    <div className="row">
+      {props.children}
+    </div>
+  )
+}
+
+export function Col(props){
 
   function classNames(props){
     const { lg, md, sm, xs, offset } = props
@@ -19,5 +27,3 @@ function Col(props){
     </div>
   )
 }
-
-export default Col
