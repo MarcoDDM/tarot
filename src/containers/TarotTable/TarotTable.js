@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
 import { chooseCard, clearChoices } from '../../actions'
 import ShuffleCards from '../../components/ShuffleCards/ShuffleCards'
+import spreadTypes from '../../helpers/spreadTypes'
 import store from '../../store';
 import './TarotTable.sass'
 
 class TarotTable extends Component {
 
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
 
     this.state = {
       canChoice: true,
@@ -32,8 +33,9 @@ class TarotTable extends Component {
 
     store.dispatch(chooseCard(choice))
     let choices = store.getState().choiceState
-    
-    if(choices.length === this.state.spreadType){
+    let spreadAmountCards = spreadTypes[this.state.spreadType].amountCards
+
+    if(choices.length === spreadAmountCards){
       this.setState({ canChoice: false })
       setTimeout(() =>
         this.props.router.push(`/reading`), 500)
@@ -41,9 +43,11 @@ class TarotTable extends Component {
   }
 
   render() {
+    const message = `${this.state.spreadType} ${this.state.spreadType === 1 ? 'carta' : 'cartas'}`
+
     return (
       <div className="tarot-table">
-        <h1>Mentalize sua questão e escolha {this.state.spreadType} {this.state.spreadType === 1 ? 'carta' : 'cartas'}</h1>
+        <h1>Mentalize sua questão e escolha {message}</h1>
         <ShuffleCards
           handleChoice={choice => this.handleChoice(choice)}>
         </ShuffleCards>
