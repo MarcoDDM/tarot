@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { chooseCard, clearChoices } from '../../actions'
-import SpreadCards from '../SpreadCards/SpreadCards'
+import ShuffleCards from '../../components/ShuffleCards/ShuffleCards'
 import store from '../../store';
 import './TarotTable.sass'
 
@@ -43,9 +43,10 @@ class TarotTable extends Component {
   render() {
     return (
       <div className="tarot-table">
-        <SpreadCards
+        <h1>Mentalize sua questão e escolha {this.state.spreadType} {this.state.spreadType === 1 ? 'carta' : 'cartas'}</h1>
+        <ShuffleCards
           handleChoice={choice => this.handleChoice(choice)}>
-        </SpreadCards>
+        </ShuffleCards>
       </div>
     )
   }

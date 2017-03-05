@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 import App from './App'
-import Index from './components/Index/Index'
-import TarotTable from './components/TarotTable/TarotTable'
-import Reading from './components/Reading/Reading'
+import Index from './screens/Index/Index'
+import TarotTable from './screens/TarotTable/TarotTable'
+import Reading from './screens/Reading/Reading'
 import store from './store'
 
 ReactDOM.render(

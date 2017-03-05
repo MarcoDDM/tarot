@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Card from '../Card/Card'
+import ButtonSpreadType from '../../components/ButtonSpreadType/ButtonSpreadType'
 import { chooseSpreadType } from '../../actions'
 import store from '../../store'
 import './Index.sass'
@@ -17,22 +17,10 @@ class Index extends Component {
         <h1>Escolha o tipo de tiragem:</h1>
         <div className="row text-center">
           <div className="col-lg-3 col-md-4 col-sm-6 col-xs-6 col-lg-offset-3">
-            <button className="spread-type" onClick={() => this.handleChoice(1)}>
-              <div className="cards">
-                <Card cardNumber={0} backsideCardStyle={1} />
-              </div>
-              <h4>1 carta</h4>
-            </button>
+            <ButtonSpreadType type={1} click={choice => this.handleChoice(choice)} />
           </div>
           <div className="col-lg-3 col-md-4 col-sm-6 col-xs-6">
-            <button className="spread-type" onClick={() => this.handleChoice(3)}>
-              <div className="cards">
-                <Card cardNumber={0} backsideCardStyle={1} />
-                <Card cardNumber={0} backsideCardStyle={1} />
-                <Card cardNumber={0} backsideCardStyle={1} />
-              </div>
-              <h4>3 cartas</h4>
-            </button>
+            <ButtonSpreadType type={3} click={choice => this.handleChoice(choice)} />
           </div>
         </div>
       </div>
