@@ -24,14 +24,12 @@ class Card extends Component {
     let frontside = require(`../../assets/img/major-arcanums/rider-waite/${this.props.cardNumber}.png`)
 
     return(
-      <div className="col-lg-2 col-md-2 col-sm-2 col-xs-3">
-        <div className={className} onClick={this.cardClick.bind(this)}>
+      <div className={className} onClick={this.cardClick.bind(this)}>
         <div className="backside">
           <img src={backside} className=" img-responsive" alt="Back card"/>
         </div>
         <div className="frontside">
           <img src={frontside} className=" img-responsive" alt="Front card"/>
-        </div>
         </div>
       </div>
     )

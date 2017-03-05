@@ -13,13 +13,16 @@ class SpreadCards extends Component {
 
   componentWillMount(){
     const cards = []
+
     for (let i = 0; i < 21; i++){
       cards.push(
-        <Card
-          key={i}
-          cardNumber={i}
-          backsideCardStyle={1}
-          handleChoice={() => this.handleChoice(i)} />
+        <div className="col-lg-2 col-md-2 col-sm-2 col-xs-3">
+          <Card
+            key={i}
+            cardNumber={i}
+            backsideCardStyle={1}
+            handleChoice={() => this.handleChoice(i)} />
+        </div>
       )
     }
 
