@@ -9,7 +9,7 @@ export function Row(props){
 }
 
 export function Col(props){
-
+  
   function classNames(props){
     const { lg, md, sm, xs, offset } = props
     return ([

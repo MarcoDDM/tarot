@@ -6,10 +6,7 @@ class ShuffleCards extends Component {
 
   constructor(props){
     super(props)
-
-    this.state = {
-      cards: []
-    }
+    this.state = { cards: [] }
   }
 
   componentWillMount(){

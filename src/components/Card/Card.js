@@ -5,13 +5,10 @@ class Card extends Component {
 
   constructor(props){
     super(props)
-
-    this.state = {
-      selected: false
-    }
+    this.state = { selected: false }
   }
 
-  cardClick(){    
+  cardClick(){
     if(this.state.selected) return
 
     this.setState({ selected: true })
