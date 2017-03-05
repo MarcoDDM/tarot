@@ -11,11 +11,13 @@ class Card extends Component {
     }
   }
 
-  cardClick(e){
-    e.preventDefault()
+  cardClick(){    
     if(this.state.selected) return
+
     this.setState({ selected: true })
-    this.props.handleChoice(this.props.cardNumber)
+
+    if(this.props.handleChoice)
+      this.props.handleChoice(this.props.cardNumber)
   }
 
   render(){

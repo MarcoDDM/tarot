@@ -32,7 +32,7 @@ class TarotTable extends Component {
 
     store.dispatch(chooseCard(choice))
     let choices = store.getState().choiceState
-
+    
     if(choices.length === this.state.spreadType){
       this.setState({ canChoice: false })
       setTimeout(() =>

@@ -1,4 +1,4 @@
-export function chooseSpreadType(choice) {
+export function chooseSpreadType(choice) {  
   return {
     type: 'CHOOSE_SPREAD_TYPE',
     choice

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Row, Col } from '../Grid/Grid'
 import Card from '../Card/Card'
 
 class ShuffleCards extends Component {
@@ -16,13 +17,12 @@ class ShuffleCards extends Component {
 
     for (let i = 0; i < 21; i++){
       cards.push(
-        <div className="col-lg-2 col-md-2 col-sm-2 col-xs-3">
+        <Col lg="2" md="2" sm="2" xs="3" key={i}>
           <Card
-            key={i}
             cardNumber={i}
             backsideCardStyle={1}
             handleChoice={() => this.handleChoice(i)} />
-        </div>
+        </Col>
       )
     }
 
@@ -41,9 +41,9 @@ class ShuffleCards extends Component {
 
   render(){
     return (
-      <div className="row">
+      <Row>
         {this.state.cards}
-      </div>
+      </Row>
     )
   }
 }
