@@ -7,29 +7,45 @@ class ButtonSpreadType extends Component {
 
   constructor(props){
     super(props)
-    this.state = { cards: [] }
+    this.state = {
+      cards: [],
+      spreadType: {}
+    }
   }
 
   componentWillMount(){
     let cards = []
-    let spreadAmountCards = spreadTypes[this.props.type].amountCards
+    let spreadType = spreadTypes[this.props.type]
+    let spreadAmountCards = spreadType.amountCards
 
     for (let i = 0; i < spreadAmountCards; i++)
-      cards.push(<Card key={i} cardNumber={0} backsideCardStyle={1} />)
+      cards.push(
+        <Card
+          key={i}
+          cardNumber={0}
+          backsideCardStyle={1}
+          spreadTypeCardFeature={spreadType.cardsFeatures[i+1]}
+        />
+      )
 
-    this.setState({ cards })
+    this.setState({ cards, spreadType })
   }
 
   render(){
-    let amountCards = spreadTypes[this.props.type].amountCards
-    let description = spreadTypes[this.props.type].description
+    let amountCards = this.state.spreadType.amountCards
+    let description = this.state.spreadType.description
+    let classNames = [
+      'spread-type',
+      this.state.spreadType.className
+    ].join(' ')
+
     return (
-      <button className="spread-type" onClick={() => this.props.click(this.props.type)}>
+      <button className={classNames} onClick={() => this.props.click(this.props.type)}>
         <div className="cards">
           {this.state.cards}
         </div>
         <h4>{amountCards} {amountCards === 1 ? 'carta' : 'cartas'}</h4>
-        <p>{description}</p>
+        <p className="description">{description}</p>
       </button>
     )
   }

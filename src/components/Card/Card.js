@@ -30,6 +30,7 @@ class Card extends Component {
         <div className="frontside">
           <img src={frontside} className=" img-responsive" alt="Front card"/>
         </div>
+        <span>{this.props.spreadTypeCardFeature}</span>
       </div>
     )
   }
