@@ -28,7 +28,7 @@ class ButtonSpreadType extends Component {
         <div className="cards">
           {this.state.cards}
         </div>
-        <h4>{amountCards} carta</h4>
+        <h4>{amountCards} {amountCards === 1 ? 'carta' : 'cartas'}</h4>
         <p>{description}</p>
       </button>
     )
