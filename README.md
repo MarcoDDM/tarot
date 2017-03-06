@@ -1,5 +1,5 @@
 # About
-This is a simple Tarot game developed for learn ReactJS and Redux. 
+This is a simple Tarot game developed to learn ReactJS and Redux. 
 
 
 ## Installation
