@@ -26,6 +26,8 @@ class TarotTable extends Component {
 
     store.dispatch(clearChoices())
     this.setState({ spreadType });
+
+    window.scrollTo(0, 0)
   }
 
   handleChoice(choice){
@@ -43,7 +45,7 @@ class TarotTable extends Component {
   }
 
   render() {
-    const message = `${this.state.spreadType} ${this.state.spreadType === 1 ? 'carta' : 'cartas'}`
+    const message = `${spreadTypes[this.state.spreadType].amountCards} ${spreadTypes[this.state.spreadType].amountCards === 1 ? 'carta' : 'cartas'}`
 
     return (
       <div className="tarot-table">
