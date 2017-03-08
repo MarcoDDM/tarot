@@ -2,7 +2,7 @@
   width: 100%
   display: block
 
-  .description
+  .spreadDescription
     text-align: left
 
   .cards
@@ -18,7 +18,10 @@
       margin-bottom: 10px
       display: inline-block
 
-      span
-        color: #b7b7b7
-        font-size: 0.8em
-        transition: all 0.2s ease .1s
+      .spreadTypeCardFeature
+        font-size: 0.9em
+
+
+      &.show-frontside
+        .spreadTypeCardFeature
+          transform: rotateY(-180deg)

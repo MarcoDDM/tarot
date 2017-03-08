@@ -7,37 +7,41 @@ class SpreadCards extends Component {
 
   constructor(props){
     super(props)
-    this.state = {
-      cards: [],
-      spreadType: {}
-    }
+    this.state = { cards: [] }
   }
 
   componentWillMount(){
-    let cards = []
-    let spreadType = spreadTypes[this.props.spreadType]
-    let spreadAmountCards = spreadType.amountCards
+    let cards = [],
+      display = this.props.display,
+      choices = this.props.choices,
+      cardOverlay = this.props.cardOverlay,
+      spreadType = spreadTypes[this.props.spreadType],
+      spreadAmountCards = spreadType.amountCards
 
-    for (let i = 0; i < spreadAmountCards; i++)
+    for (let i = 0; i < spreadAmountCards; i++){
+      let overlay = choices[i] !== cardOverlay ? true : false
       cards.push(
         <Card
           key={i}
-          cardNumber={0}
+          cardNumber={choices[i]}
+          display={display}
+          cardOverlay={overlay}
           backsideCardStyle={1}
           spreadTypeCardFeature={spreadType.cardsFeatures[i+1]}
         />
       )
+    }
 
-    this.setState({ cards, spreadType })
+    this.setState({ cards })
   }
 
   showSpreadDescription(){
     if(this.props.showSpreadDescription){
-      let amountCards = this.state.spreadType.amountCards
-      let description = this.state.spreadType.description
+      let amountCards = spreadTypes[this.props.spreadType].amountCards
+      let spreadDescription = spreadTypes[this.props.spreadType].description
       return (
         <div><h4>{amountCards} {amountCards === 1 ? 'carta' : 'cartas'}</h4>
-        <p className="description">{description}</p></div>
+        <p className="spreadDescription">{spreadDescription}</p></div>
       )
     }
   }
@@ -45,7 +49,7 @@ class SpreadCards extends Component {
   render(){
     let classNames = [
       'spread-cards',
-      this.state.spreadType.className
+      spreadTypes[this.props.spreadType].className
     ].join(' ')
 
     return (
@@ -53,10 +57,18 @@ class SpreadCards extends Component {
         <div className="cards">
           {this.state.cards}
         </div>
-        { this.showSpreadDescription() }
+        {this.showSpreadDescription()}
       </div>
     )
   }
+}
+
+SpreadCards.defaultProps = {
+  choices: [],
+  cardOverlay: undefined,
+  display: 'backside',
+  spreadType: 'simple',
+  showSpreadDescription: false
 }
 
 export default SpreadCards

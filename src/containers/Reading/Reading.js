@@ -7,18 +7,23 @@ class Reading extends Component {
 
   constructor(){
     super()
-    this.state = { cards: [] }
+    this.state = {
+      choices: [],
+      spreadType: ''
+    }
   }
 
   componentWillMount(){
-    let cards = store.getState().choiceState
+    let choices = store.getState().choiceState
+    let spreadType = store.getState().spreadState    
 
-    if(!cards || !cards.length){
+    if(!choices || !choices.length){
       this.goToHome()
       return
     }
 
-    this.setState({ cards })
+    this.setState({ choices, spreadType })
+
     window.scrollTo(0, 0)
   }
 
@@ -27,10 +32,16 @@ class Reading extends Component {
   }
 
   render(){
-    const cards = this.state.cards
+    const choices = this.state.choices
 
-    const cardInfo = cards.map(card => {
-      return (<CardInfo card={card} key={card} />)
+    const cardInfo = choices.map(card => {
+      return (
+        <CardInfo
+          key={card}
+          card={card}
+          choices={choices}
+          spreadType={this.state.spreadType} />
+      )
     })
 
     return (

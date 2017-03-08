@@ -6,15 +6,17 @@
     position: absolute
     top: 0
     right: 0
-
-  .frontside
-    transition: all 0.2s ease .1s
-    transform: rotateY(180deg)
     z-index: 0
     visibility: hidden
+    transition: all 0.2s ease .1s
+    transform: rotateY(180deg)
 
   .backside
     z-index: 1
+
+  &.overlay
+    opacity: .1
+    filter: grayscale(100%)
 
   &.show-frontside
     transform: rotateY(180deg)
@@ -28,3 +30,9 @@
       transform: rotateY(180deg)
       transition: all 0.2s ease .1s
       z-index: 0
+
+  .spreadTypeCardFeature
+    display: inline-block
+    color: #b7b7b7
+    font-size: 0.8em
+    transition: all 0.2s ease .1s

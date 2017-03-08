@@ -44,15 +44,21 @@ class TarotTable extends Component {
     }
   }
 
-  render() {
-    const message = `${spreadTypes[this.state.spreadType].amountCards} ${spreadTypes[this.state.spreadType].amountCards === 1 ? 'carta' : 'cartas'}`
+  headMessage(){
+    if(this.state.spreadType){
+      const message = `
+        ${spreadTypes[this.state.spreadType].amountCards}
+        ${spreadTypes[this.state.spreadType].amountCards === 1 ? 'carta' : 'cartas'}
+      `
+      return(<h1>Mentalize sua questão e escolha {message}</h1>)
+    }
+  }
 
+  render() {
     return (
       <div className="tarot-table">
-        <h1>Mentalize sua questão e escolha {message}</h1>
-        <ShuffleCards
-          handleChoice={choice => this.handleChoice(choice)}>
-        </ShuffleCards>
+        {this.headMessage()}
+        <ShuffleCards handleChoice={choice => this.handleChoice(choice)} />
       </div>
     )
   }
