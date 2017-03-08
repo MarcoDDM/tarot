@@ -1,5 +1,7 @@
 # About
-This is a simple Tarot game developed to learn ReactJS and Redux. 
+This is a simple Tarot game that is still under development, made to learn ReactJS and Redux.
+
+You can see it work at: https://thiagommedeiros.github.io/myTarot/
 
 
 ## Installation
