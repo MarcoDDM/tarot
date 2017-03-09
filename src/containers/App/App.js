@@ -1,5 +1,5 @@
 import React from 'react'
-import HeaderApp from '../../components/HeaderApp/HeaderApp'
+import HeaderBar from '../../components/HeaderBar/HeaderBar'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -14,7 +14,7 @@ injectTapEventPlugin();
 const App = ({ children, location }) => (
   <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
     <main className="main">
-      <HeaderApp/>
+      <HeaderBar/>
       <div className="container">
         <ReactCSSTransitionGroup
           transitionName="page-transition"
