@@ -1,7 +1,12 @@
 import React, { Component } from 'react'
+import RaisedButton from 'material-ui/RaisedButton';
 import CardInfo from '../../components/CardInfo/CardInfo'
 import store from '../../store'
 import './Reading.sass'
+
+const btnStyle = {
+  marginBottom: 33  
+}
 
 class Reading extends Component {
 
@@ -15,7 +20,7 @@ class Reading extends Component {
 
   componentWillMount(){
     let choices = store.getState().choiceState
-    let spreadType = store.getState().spreadState    
+    let spreadType = store.getState().spreadState
 
     if(!choices || !choices.length){
       this.goToHome()
@@ -46,8 +51,9 @@ class Reading extends Component {
 
     return (
       <div className="reading">
-        <a className="btn-back" onClick={() => this.goToHome()}>Novo</a>
+        <RaisedButton label="Novo jogo" style={btnStyle} onTouchTap={() => this.goToHome()} />
         {cardInfo}
+        <RaisedButton label="Novo jogo" style={btnStyle} onTouchTap={() => this.goToHome()} />
       </div>
     )
   }
