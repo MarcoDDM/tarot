@@ -37,10 +37,10 @@ class Card extends Component {
     return(
       <div className={this.classNames()} onClick={this.cardClick.bind(this)}>
         <div className="backside">
-          <img src={backside} className=" img-responsive" alt="Back card"/>
+          <img src={backside} className="img-responsive" alt="Back card"/>
         </div>
         <div className="frontside">
-          <img src={frontside} className=" img-responsive" alt="Front card"/>
+          <img src={frontside} className="img-responsive" alt="Front card"/>
         </div>
         { this.spreadTypeCardFeature() }
       </div>
