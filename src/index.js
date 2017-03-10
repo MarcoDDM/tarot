@@ -8,6 +8,7 @@ import AppContainer from './containers/App/AppContainer'
 import IndexContainer from './containers/Index/IndexContainer'
 import TarotTableContainer from './containers/TarotTable/TarotTableContainer'
 import ReadingContainer from './containers/Reading/ReadingContainer'
+import ConfigsContainer from './containers/Configs/ConfigsContainer'
 
 import store from './store'
 
@@ -18,6 +19,7 @@ ReactDOM.render(
         <IndexRoute component={IndexContainer}/>
         <Route path="tarot-table" component={TarotTableContainer} />
         <Route path="reading" component={ReadingContainer} />
+        <Route path="configs" component={ConfigsContainer} />
       </Route>
     </Router>
   </Provider>,
