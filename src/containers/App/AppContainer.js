@@ -1,10 +1,13 @@
 import React from 'react'
-import HeaderContainer from '../Header/HeaderContainer'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import injectTapEventPlugin from 'react-tap-event-plugin';
+
+import HeaderContainer from '../Header/HeaderContainer'
+
 import 'bootstrap-css-only'
 import '../../assets/css/base.sass'
 import '../../assets/css/animations.sass'

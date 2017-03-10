@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
-import RaisedButton from 'material-ui/RaisedButton';
+import RaisedButton from 'material-ui/RaisedButton'
 import CardInfo from '../../components/CardInfo/CardInfo'
 import store from '../../store'
-import './Reading.sass'
+import './index.sass'
 
 const btnStyle = {
-  marginBottom: 33  
+  marginBottom: 33
 }
 
-class Reading extends Component {
+class ReadingContainer extends Component {
 
   constructor(){
     super()
@@ -59,4 +59,4 @@ class Reading extends Component {
   }
 }
 
-export default Reading
+export default ReadingContainer

@@ -1,13 +1,16 @@
 import React from 'react'
+
 import { Row, Col } from '../../components/Grid/Grid'
 import ButtonSpreadType from '../../components/ButtonSpreadType/ButtonSpreadType'
+
 import { chooseSpreadType } from '../../actions'
 import store from '../../store'
-import './Index.sass'
 
-function Index(props){
+import './index.sass'
 
-  function handleChoice(choice){
+const IndexContainer = props => {
+
+  const handleChoice = choice => {
     store.dispatch(chooseSpreadType(choice))
     props.router.push(`/tarot-table`)
   }
@@ -27,4 +30,4 @@ function Index(props){
   )
 }
 
-export default Index
+export default IndexContainer

@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
-import { chooseCard, clearChoices } from '../../actions'
+
 import ShuffleCards from '../../components/ShuffleCards/ShuffleCards'
 import spreadTypes from '../../helpers/spreadTypes'
-import store from '../../store';
-import './TarotTable.sass'
 
-class TarotTable extends Component {
+import { chooseCard, clearChoices } from '../../actions'
+import store from '../../store'
+
+import './index.sass'
+
+class TarotTableContainer extends Component {
 
   constructor(props){
     super(props)
@@ -25,7 +28,7 @@ class TarotTable extends Component {
     }
 
     store.dispatch(clearChoices())
-    this.setState({ spreadType });
+    this.setState({ spreadType })
 
     window.scrollTo(0, 0)
   }
@@ -64,4 +67,4 @@ class TarotTable extends Component {
   }
 }
 
-export default TarotTable;
+export default TarotTableContainer
