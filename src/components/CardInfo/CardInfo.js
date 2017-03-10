@@ -1,6 +1,6 @@
 import React from 'react'
-import { Row, Col } from '../Grid/Grid'
-import SpreadCards from '../SpreadCards/SpreadCards'
+import { Row, Col } from '../Grid'
+import SpreadCards from '../SpreadCards'
 import arcanums from '../../helpers/arcanums'
 import './CardInfo.sass'
 

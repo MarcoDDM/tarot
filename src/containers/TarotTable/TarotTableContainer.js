@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 
-import ShuffleCards from '../../components/ShuffleCards/ShuffleCards'
+import ShuffleCards from '../../components/ShuffleCards'
 import spreadTypes from '../../helpers/spreadTypes'
 
 import { chooseCard, clearChoices } from '../../actions'
 import store from '../../store'
 
-import './index.sass'
+import './TarotTableContainer.sass'
 
 class TarotTableContainer extends Component {
 

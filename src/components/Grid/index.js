@@ -1,6 +1,6 @@
 import React from 'react'
 
-export function Row(props){
+export const Row = props => {
   return(
     <div className="row">
       {props.children}
@@ -8,9 +8,9 @@ export function Row(props){
   )
 }
 
-export function Col(props){
-  
-  function classNames(props){
+export const Col = props => {
+
+  const classNames = props => {
     const { lg, md, sm, xs, offset } = props
     return ([
       lg ? `col-lg-${lg}` : '',

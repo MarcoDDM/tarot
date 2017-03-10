@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { Row, Col } from '../Grid/Grid'
-import Card from '../Card/Card'
+import { Row, Col } from '../Grid'
+import Card from '../Card'
 import './ShuffleCards.sass'
 
 class ShuffleCards extends Component {

@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import RaisedButton from 'material-ui/RaisedButton'
-import CardInfo from '../../components/CardInfo/CardInfo'
+import CardInfo from '../../components/CardInfo'
 import store from '../../store'
-import './index.sass'
+import './ReadingContainer.sass'
 
 const btnStyle = {
   marginBottom: 33

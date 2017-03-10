@@ -1,12 +1,12 @@
 import React from 'react'
 
-import { Row, Col } from '../../components/Grid/Grid'
-import ButtonSpreadType from '../../components/ButtonSpreadType/ButtonSpreadType'
+import { Row, Col } from '../../components/Grid'
+import ButtonSpreadType from '../../components/ButtonSpreadType'
 
 import { chooseSpreadType } from '../../actions'
 import store from '../../store'
 
-import './index.sass'
+import './IndexContainer.sass'
 
 const IndexContainer = props => {
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import SpreadCards from '../SpreadCards/SpreadCards'
+import SpreadCards from '../SpreadCards'
 import './ButtonSpreadType.sass'
 
 function ButtonSpreadType(props){
