@@ -41,7 +41,7 @@ class TarotTableContainer extends Component {
     if(choices.length === spreadAmountCards){
       this.setState({ canChoice: false })
       setTimeout(() =>
-        this.props.router.push(`/reading`), 500)
+        this.props.router.push(`/reading`), 300)
     }
   }
 
