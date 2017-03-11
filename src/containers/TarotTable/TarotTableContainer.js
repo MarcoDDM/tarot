@@ -6,8 +6,6 @@ import spreadTypes from '../../helpers/spreadTypes'
 import { chooseCard, clearChoices } from '../../actions'
 import store from '../../store'
 
-import './TarotTableContainer.sass'
-
 class TarotTableContainer extends Component {
 
   constructor(props){
@@ -43,7 +41,7 @@ class TarotTableContainer extends Component {
     if(choices.length === spreadAmountCards){
       this.setState({ canChoice: false })
       setTimeout(() =>
-        this.props.router.push(`/reading`), 500)
+        this.props.router.push(`/reading`), 300)
     }
   }
 
@@ -53,7 +51,7 @@ class TarotTableContainer extends Component {
         ${spreadTypes[this.state.spreadType].amountCards}
         ${spreadTypes[this.state.spreadType].amountCards === 1 ? 'carta' : 'cartas'}
       `
-      return(<h1>Mentalize sua questão e escolha {message}</h1>)
+      return(<h1 className="page-title">Mentalize sua questão e escolha {message}</h1>)
     }
   }
 

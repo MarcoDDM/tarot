@@ -31,7 +31,7 @@ class Card extends Component {
   }
 
   render(){
-    let backside = require(`../../assets/img/backside-card-${this.props.backsideCardStyle}.png`)
+    let backside = require(`../../assets/img/backside/backside-card-${this.props.backsideCardStyle}.png`)
     let frontside = require(`../../assets/img/major-arcanums/rider-waite/${this.props.cardNumber}.png`)
 
     return(

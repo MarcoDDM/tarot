@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
+
 import Card from '../Card'
 import spreadTypes from '../../helpers/spreadTypes'
+
+import store from '../../store'
+
 import './SpreadCards.sass'
 
 class SpreadCards extends Component {
@@ -26,7 +30,7 @@ class SpreadCards extends Component {
           cardNumber={choices[i]}
           display={display}
           cardOverlay={overlay}
-          backsideCardStyle={1}
+          backsideCardStyle={store.getState().backsideStyleState}
           spreadTypeCardFeature={spreadType.cardsFeatures[i+1]}
         />
       )

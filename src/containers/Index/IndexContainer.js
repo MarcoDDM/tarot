@@ -6,8 +6,6 @@ import ButtonSpreadType from '../../components/ButtonSpreadType'
 import { chooseSpreadType } from '../../actions'
 import store from '../../store'
 
-import './IndexContainer.sass'
-
 const IndexContainer = props => {
 
   const handleChoice = choice => {
@@ -17,7 +15,7 @@ const IndexContainer = props => {
 
   return (
     <div className="index">
-      <h1>Escolha o tipo de tiragem:</h1>
+      <h1 className="page-title">Escolha o tipo de tiragem:</h1>
       <Row>
         <Col lg="3" md="4" sm="6" xs="12" offset={['lg', 3]}>
           <ButtonSpreadType spreadType="simple" click={choice => handleChoice(choice)} />
