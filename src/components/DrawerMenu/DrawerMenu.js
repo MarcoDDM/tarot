@@ -42,7 +42,7 @@ const DrawerMenu = props => {
       <MenuItem
         primaryText="Configurações"
         leftIcon={<Settings/>}
-        onTouchTap={() => handleMenuItem('soon')} />
+        onTouchTap={() => handleMenuItem('/configs')} />
       <Divider />
       <MenuItem
         primaryText="Dúvidas"
