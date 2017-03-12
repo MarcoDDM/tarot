@@ -4,15 +4,13 @@ import SpreadCards from '../SpreadCards'
 import arcanums from '../../helpers/arcanums'
 import './CardInfo.sass'
 
-function CardInfo(props){
-  let card = props.card
-  let choices = props.choices
-  let spreadType = props.spreadType
+const CardInfo = ({ card, choices, spreadType }) => {
   let cardImage = require(`../../assets/img/major-arcanums/rider-waite/${card}.png`)
+  let arcanum = arcanums.major[card]
 
   const cardInfoImage = () => {
     if(choices.length === 1){
-      return (<img src={cardImage} alt={arcanums.major[card].name} className="card-image img-responsive"/>)
+      return (<img src={cardImage} alt={arcanum.name} className="card-image img-responsive"/>)
     }
 
     return (
@@ -32,9 +30,9 @@ function CardInfo(props){
             {cardInfoImage()}
           </Col>
           <Col lg="8" md="10" sm="9" sx="12">
-            <h2>{arcanums.major[card].name} - Arcano {card}</h2>
-            <h3>{arcanums.major[card].attribute}</h3>
-            <p>{arcanums.major[card].description}</p>
+            <h2>{arcanum.name} - Arcano {card}</h2>
+            <h3>{arcanum.attribute}</h3>
+            <p>{arcanum.description}</p>
           </Col>
         </Col>
       </Row>

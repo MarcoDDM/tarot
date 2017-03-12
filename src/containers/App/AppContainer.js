@@ -7,7 +7,6 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import injectTapEventPlugin from 'react-tap-event-plugin'
 
 import HeaderContainer from '../Header/HeaderContainer'
-
 import 'bootstrap-css-only'
 import '../../assets/css/base.sass'
 import '../../assets/css/animations.sass'

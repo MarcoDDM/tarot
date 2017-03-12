@@ -28,6 +28,7 @@ class ConfigsContainer extends Component {
   handleChoice(choice){
     store.dispatch(chooseBacksideStyle(choice))
     this.setState({
+      ...this.state,
       choice,
       notification: {
         open: true,

@@ -5,21 +5,26 @@ class Card extends Component {
 
   constructor(props){
     super(props)
-    this.state = { selected: false }
+    this.state = {
+      selected: false,
+      frontside: '',
+      backside: ''
+    }
+  }
+
+  componentWillMount(){
+    let backside = require(`../../assets/img/backside/backside-card-${this.props.backsideCardStyle}.png`)
+    let frontside = require(`../../assets/img/major-arcanums/rider-waite/${this.props.cardNumber}.png`)
+    this.setState({ ...this.state, frontside, backside })
   }
 
   cardClick(){
-    if(this.state.selected) return
-
-    this.setState({ selected: true })
-
-    if(this.props.handleChoice)
-      this.props.handleChoice(this.props.cardNumber)
+    this.setState({ ...this.state, selected: true })
+    this.props.handleChoice && this.props.handleChoice(this.props.cardNumber)
   }
 
   spreadTypeCardFeature(){
-    if(this.props.spreadTypeCardFeature)
-      return(<span className="spreadTypeCardFeature">{this.props.spreadTypeCardFeature}</span>)
+    return(<span className="spreadTypeCardFeature">{this.props.spreadTypeCardFeature}</span>)
   }
 
   classNames(){
@@ -31,22 +36,18 @@ class Card extends Component {
   }
 
   render(){
-    let backside = require(`../../assets/img/backside/backside-card-${this.props.backsideCardStyle}.png`)
-    let frontside = require(`../../assets/img/major-arcanums/rider-waite/${this.props.cardNumber}.png`)
-
     return(
-      <div className={this.classNames()} onClick={this.cardClick.bind(this)}>
+      <div className={this.classNames()} onClick={() => !this.state.selected && this.cardClick()}>
         <div className="backside">
-          <img src={backside} className="img-responsive" alt="Back card"/>
+          <img src={this.state.backside} className="img-responsive" alt="Back card"/>
         </div>
         <div className="frontside">
-          <img src={frontside} className="img-responsive" alt="Front card"/>
+          <img src={this.state.frontside} className="img-responsive" alt="Front card"/>
         </div>
-        { this.spreadTypeCardFeature() }
+        {this.props.spreadTypeCardFeature && this.spreadTypeCardFeature()}
       </div>
     )
   }
-
 }
 
 Card.defaultProps = {

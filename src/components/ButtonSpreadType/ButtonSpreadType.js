@@ -2,10 +2,10 @@ import React from 'react'
 import SpreadCards from '../SpreadCards'
 import './ButtonSpreadType.sass'
 
-function ButtonSpreadType(props){
+const ButtonSpreadType = ({ spreadType, click }) => {
   return (
-    <button className="button-spread-type" onClick={() => props.click(props.spreadType)}>
-      <SpreadCards spreadType={props.spreadType} showSpreadDescription={true} />
+    <button className="button-spread-type" onClick={() => click(spreadType)}>
+      <SpreadCards spreadType={spreadType} showSpreadDescription={true} />
     </button>
   )
 }

@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
+import store from '../../store'
 
 import ShuffleCards from '../../components/ShuffleCards'
 import spreadTypes from '../../helpers/spreadTypes'
-
 import { chooseCard, clearChoices } from '../../actions'
-import store from '../../store'
 
 class TarotTableContainer extends Component {
 
@@ -26,40 +25,36 @@ class TarotTableContainer extends Component {
     }
 
     store.dispatch(clearChoices())
-    this.setState({ spreadType })
+    this.setState({ ...this.state, spreadType })
 
     window.scrollTo(0, 0)
   }
 
   handleChoice(choice){
-    if(!this.state.canChoice) return
-
     store.dispatch(chooseCard(choice))
     let choices = store.getState().choiceState
     let spreadAmountCards = spreadTypes[this.state.spreadType].amountCards
 
     if(choices.length === spreadAmountCards){
-      this.setState({ canChoice: false })
+      this.setState({ ...this.state, canChoice: false })
       setTimeout(() =>
         this.props.router.push(`/reading`), 300)
     }
   }
 
   headMessage(){
-    if(this.state.spreadType){
-      const message = `
-        ${spreadTypes[this.state.spreadType].amountCards}
-        ${spreadTypes[this.state.spreadType].amountCards === 1 ? 'carta' : 'cartas'}
-      `
-      return(<h1 className="page-title">Mentalize sua questão e escolha {message}</h1>)
-    }
+    const message = `
+      ${spreadTypes[this.state.spreadType].amountCards}
+      ${spreadTypes[this.state.spreadType].amountCards === 1 ? 'carta' : 'cartas'}`
+
+    return(<h1 className="page-title">Mentalize sua questão e escolha {message}</h1>)
   }
 
   render() {
     return (
       <div className="tarot-table">
-        {this.headMessage()}
-        <ShuffleCards handleChoice={choice => this.handleChoice(choice)} />
+        {this.state.spreadType && this.headMessage()}
+        <ShuffleCards handleChoice={choice => this.state.canChoice && this.handleChoice(choice)} />
       </div>
     )
   }

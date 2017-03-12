@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
+import store from '../../store'
 
 import { Row, Col } from '../Grid'
 import Card from '../Card'
-
-import store from '../../store'
-
 import './ShuffleCards.sass'
 
 class ShuffleCards extends Component {
@@ -16,13 +14,14 @@ class ShuffleCards extends Component {
 
   componentWillMount(){
     const cards = []
+    let backsideStyle = store.getState().backsideStyleState
 
     for (let i = 0; i < 21; i++){
       cards.push(
         <Col lg="2" md="2" sm="2" xs="3" key={i}>
           <Card
             cardNumber={i}
-            backsideCardStyle={store.getState().backsideStyleState}
+            backsideCardStyle={backsideStyle}
             handleChoice={() => this.handleChoice(i)} />
         </Col>
       )

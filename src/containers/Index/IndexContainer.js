@@ -1,16 +1,15 @@
 import React from 'react'
+import store from '../../store'
 
 import { Row, Col } from '../../components/Grid'
 import ButtonSpreadType from '../../components/ButtonSpreadType'
-
 import { chooseSpreadType } from '../../actions'
-import store from '../../store'
 
-const IndexContainer = props => {
+const IndexContainer = ({ router }) => {
 
   const handleChoice = choice => {
     store.dispatch(chooseSpreadType(choice))
-    props.router.push(`/tarot-table`)
+    router.push(`/tarot-table`)
   }
 
   return (
