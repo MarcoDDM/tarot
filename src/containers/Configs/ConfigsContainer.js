@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Row, Col } from '../../components/Grid'
+import Notification from '../../components/Notification'
 
 import { chooseBacksideStyle } from '../../actions'
 import store from '../../store'
@@ -10,7 +11,14 @@ class ConfigsContainer extends Component {
 
   constructor(){
     super()
-    this.state = { choice: store.getState().backsideStyleState }
+    this.state = {
+      choice: store.getState().backsideStyleState,
+      notification: {
+        open: false,
+        message: '',
+        duration: 0
+      }
+    }
   }
 
   backsideCard(cardStyle){
@@ -19,7 +27,14 @@ class ConfigsContainer extends Component {
 
   handleChoice(choice){
     store.dispatch(chooseBacksideStyle(choice))
-    this.setState({ choice })
+    this.setState({
+      choice,
+      notification: {
+        open: true,
+        message: 'Estilo de cartas alterado com sucesso!',
+        duration: 3000
+      }
+    })
   }
 
   classNames(cardStyle){
@@ -67,6 +82,11 @@ class ConfigsContainer extends Component {
             />
           </Col>
         </Row>
+        <Notification
+          open={this.state.notification.open}
+          message={this.state.notification.message}
+          duration={this.state.notification.duration}
+        />
       </div>
     )
   }
