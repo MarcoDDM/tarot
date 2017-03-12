@@ -9,11 +9,11 @@ class Notification extends Component {
   }
 
   componentWillReceiveProps(nextProps){
-    this.setState({ open: nextProps.open })
+    this.setState({ ...this.state, open: nextProps.open })
   }
 
   handleRequestClose(){
-    this.setState({ open: false })
+    this.setState({ ...this.state, open: false })
   }
 
   render(){

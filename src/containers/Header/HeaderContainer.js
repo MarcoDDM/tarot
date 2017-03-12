@@ -10,7 +10,7 @@ class HeaderContainer extends Component {
   }
 
   toogleOpenDrawerMenu(){
-    this.setState({ openDrawerMenu: !this.state.openDrawerMenu })
+    this.setState({ ...this.state, openDrawerMenu: !this.state.openDrawerMenu })
   }
 
   render(){
@@ -19,7 +19,7 @@ class HeaderContainer extends Component {
       <HeaderBar toogleOpenDrawerMenu={() => this.toogleOpenDrawerMenu()} />
       <DrawerMenu
         open={this.state.openDrawerMenu}
-        handleOnRequestChange={() => this.toogleOpenDrawerMenu()} />
+        onRequestChange={() => this.toogleOpenDrawerMenu()} />
       </div>
     )
   }

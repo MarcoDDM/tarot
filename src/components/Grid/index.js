@@ -1,15 +1,12 @@
 import React from 'react'
 
-export const Row = props => {
-  return(
-    <div className="row">
-      {props.children}
-    </div>
-  )
-}
+export const Row = ({ children }) => (
+  <div className="row">
+    {children}
+  </div>
+)
 
 export const Col = props => {
-
   const classNames = props => {
     const { lg, md, sm, xs, offset } = props
     return ([

@@ -4,9 +4,7 @@ import CardInfo from '../../components/CardInfo'
 import store from '../../store'
 import './ReadingContainer.sass'
 
-const btnStyle = {
-  marginBottom: 33
-}
+const btnStyle = { marginBottom: 33 }
 
 class ReadingContainer extends Component {
 
@@ -27,8 +25,7 @@ class ReadingContainer extends Component {
       return
     }
 
-    this.setState({ choices, spreadType })
-
+    this.setState({ ...this.state, choices, spreadType })
     window.scrollTo(0, 0)
   }
 

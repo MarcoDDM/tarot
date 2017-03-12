@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
+import store from '../../store'
 
 import Card from '../Card'
 import spreadTypes from '../../helpers/spreadTypes'
-
-import store from '../../store'
-
 import './SpreadCards.sass'
 
 class SpreadCards extends Component {
@@ -15,14 +13,12 @@ class SpreadCards extends Component {
   }
 
   componentWillMount(){
-    let cards = [],
-      display = this.props.display,
-      choices = this.props.choices,
-      cardOverlay = this.props.cardOverlay,
-      spreadType = spreadTypes[this.props.spreadType],
-      spreadAmountCards = spreadType.amountCards
+    const cards = []
+    const { display, choices, cardOverlay, spreadType } = this.props
+    const amountCards = spreadTypes[spreadType].amountCards
+    const backsideCardStyle = store.getState().backsideStyleState
 
-    for (let i = 0; i < spreadAmountCards; i++){
+    for (let i = 0; i < amountCards; i++){
       let overlay = choices[i] !== cardOverlay ? true : false
       cards.push(
         <Card
@@ -30,30 +26,31 @@ class SpreadCards extends Component {
           cardNumber={choices[i]}
           display={display}
           cardOverlay={overlay}
-          backsideCardStyle={store.getState().backsideStyleState}
-          spreadTypeCardFeature={spreadType.cardsFeatures[i+1]}
+          backsideCardStyle={backsideCardStyle}
+          spreadTypeCardFeature={spreadTypes[spreadType].cardsFeatures[i+1]}
         />
       )
     }
 
-    this.setState({ cards })
+    this.setState({ ...this.state, cards })
   }
 
   showSpreadDescription(){
-    if(this.props.showSpreadDescription){
-      let amountCards = spreadTypes[this.props.spreadType].amountCards
-      let spreadDescription = spreadTypes[this.props.spreadType].description
-      return (
-        <div><h4>{amountCards} {amountCards === 1 ? 'carta' : 'cartas'}</h4>
-        <p className="spreadDescription">{spreadDescription}</p></div>
-      )
-    }
+    const { spreadType } = this.props
+    const amountCards = spreadTypes[spreadType].amountCards
+    const spreadDescription = spreadTypes[spreadType].description
+
+    return (
+      <div><h4>{amountCards} {amountCards === 1 ? 'carta' : 'cartas'}</h4>
+      <p className="spreadDescription">{spreadDescription}</p></div>
+    )
   }
 
   render(){
-    let classNames = [
+    const { showSpreadDescription, spreadType } = this.props
+    const classNames = [
       'spread-cards',
-      spreadTypes[this.props.spreadType].className
+      spreadTypes[spreadType].className
     ].join(' ')
 
     return (
@@ -61,7 +58,7 @@ class SpreadCards extends Component {
         <div className="cards">
           {this.state.cards}
         </div>
-        {this.showSpreadDescription()}
+        {showSpreadDescription && this.showSpreadDescription()}
       </div>
     )
   }
