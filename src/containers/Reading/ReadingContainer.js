@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import RaisedButton from 'material-ui/RaisedButton'
-import CardInfo from '../../components/CardInfo'
+import CardDetails from '../../components/CardDetails'
 import store from '../../store'
 import './ReadingContainer.sass'
 
@@ -38,7 +38,7 @@ class ReadingContainer extends Component {
 
     const cardInfo = choices.map(card => {
       return (
-        <CardInfo
+        <CardDetails
           key={card}
           card={card}
           choices={choices}

@@ -2,9 +2,9 @@ import React from 'react'
 import { Row, Col } from '../Grid'
 import SpreadCards from '../SpreadCards'
 import arcanums from '../../helpers/arcanums'
-import './CardInfo.sass'
+import './CardDetails.sass'
 
-const CardInfo = ({ card, choices, spreadType }) => {
+const CardDetails = ({ card, choices, spreadType }) => {
   let cardImage = require(`../../assets/img/major-arcanums/rider-waite/${card}.png`)
   let arcanum = arcanums.major[card]
 
@@ -40,4 +40,4 @@ const CardInfo = ({ card, choices, spreadType }) => {
   )
 }
 
-export default CardInfo
+export default CardDetails
