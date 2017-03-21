@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-import store from '../../store'
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux'
 
 import ShuffleCards from '../../components/ShuffleCards'
 import spreadTypes from '../../helpers/spreadTypes'
-import { chooseCard, clearChoices } from '../../actions'
+import { chooseCard, clearChoices, getChoices } from '../../actions'
 
 class TarotTableContainer extends Component {
 
@@ -17,35 +18,35 @@ class TarotTableContainer extends Component {
   }
 
   componentWillMount(){
-    let spreadType = store.getState().spreadState
+    let spreadType = this.props.spreadState
 
     if(!spreadType){
       this.props.router.push('/')
       return
     }
 
-    store.dispatch(clearChoices())
-    this.setState({ ...this.state, spreadType })
-
+    this.props.clearChoices()
     window.scrollTo(0, 0)
   }
 
   handleChoice(choice){
-    store.dispatch(chooseCard(choice))
-    let choices = store.getState().choiceState
-    let spreadAmountCards = spreadTypes[this.state.spreadType].amountCards
+    this.props.chooseCard(choice)
+    let choices = this.props.choiceState
+    let spreadAmountCards = spreadTypes[this.props.spreadState].amountCards
 
     if(choices.length === spreadAmountCards){
-      this.setState({ ...this.state, canChoice: false })
-      setTimeout(() =>
-        this.props.router.push(`/reading`), 300)
+      this.setState({ canChoice: false })
+      setTimeout(() => this.props.router.push(`/reading`), 300)
     }
   }
 
   headMessage(){
+    const amountCards = spreadTypes[this.props.spreadState].amountCards
+
     const message = `
-      ${spreadTypes[this.state.spreadType].amountCards}
-      ${spreadTypes[this.state.spreadType].amountCards === 1 ? 'carta' : 'cartas'}`
+      ${amountCards}
+      ${amountCards === 1 ? 'carta' : 'cartas'}
+    `
 
     return(<h1 className="page-title">Mentalize sua questão e escolha {message}</h1>)
   }
@@ -53,11 +54,22 @@ class TarotTableContainer extends Component {
   render() {
     return (
       <div className="tarot-table">
-        {this.state.spreadType && this.headMessage()}
+        {this.props.spreadState && this.headMessage()}
         <ShuffleCards handleChoice={choice => this.state.canChoice && this.handleChoice(choice)} />
       </div>
     )
   }
 }
 
-export default TarotTableContainer
+const mapStateToProps = state => ({
+  spreadState: state.spreadState,
+  choiceState: state.choiceState
+})
+
+const matchDispatchToProps = dispatch =>
+  bindActionCreators({
+    chooseCard, clearChoices, getChoices
+  }, dispatch)
+
+
+export default connect(mapStateToProps, matchDispatchToProps)(TarotTableContainer)
