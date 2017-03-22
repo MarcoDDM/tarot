@@ -1,8 +1,9 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { render } from 'react-dom'
 
 import { Provider } from 'react-redux'
-import { Router, Route, IndexRoute, hashHistory } from 'react-router'
+import { Router, Route, IndexRoute } from 'react-router'
+import { validateRoute } from './helpers/validateRoute'
 
 import AppContainer from './containers/App/AppContainer'
 import IndexContainer from './containers/Index/IndexContainer'
@@ -10,15 +11,17 @@ import TarotTableContainer from './containers/TarotTable/TarotTableContainer'
 import ReadingContainer from './containers/Reading/ReadingContainer'
 import ConfigsContainer from './containers/Configs/ConfigsContainer'
 
-import store from './store'
+import { history, store } from './store'
 
-ReactDOM.render(
+render(
   <Provider store={store}>
-    <Router history={hashHistory}>
+    <Router history={history}>
       <Route path="/" component={AppContainer}>
         <IndexRoute component={IndexContainer}/>
-        <Route path="tarot-table" component={TarotTableContainer} />
-        <Route path="reading" component={ReadingContainer} />
+        <Route path="tarot-table" component={TarotTableContainer}
+          onEnter={() => validateRoute('tarot-table', store)} />
+        <Route path="reading" component={ReadingContainer} 
+          onEnter={() => validateRoute('reading', store)} />
         <Route path="configs" component={ConfigsContainer} />
       </Route>
     </Router>

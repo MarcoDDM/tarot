@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import store from '../../store'
+import { connect } from 'react-redux'
 
 import { Row, Col } from '../Grid'
 import Card from '../Card'
@@ -14,7 +14,7 @@ class ShuffleCards extends Component {
 
   componentWillMount(){
     const cards = []
-    let backsideStyle = store.getState().backsideStyleState
+    let backsideStyle = this.props.backsideStyleState
 
     for (let i = 0; i < 21; i++){
       cards.push(
@@ -51,4 +51,8 @@ class ShuffleCards extends Component {
   }
 }
 
-export default ShuffleCards
+const mapStateToProps = state => ({
+  backsideStyleState: state.backsideStyleState,
+})
+
+export default connect(mapStateToProps)(ShuffleCards)
