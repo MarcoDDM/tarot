@@ -1,6 +1,6 @@
 import { CHOOSE_BACKSIDE_STYLE } from '../constants/ActionTypes'
 
-const backsideStyleReducer = (state = 1, action) => {
+const backsideStyle = (state = 1, action) => {
   switch (action.type) {
     case CHOOSE_BACKSIDE_STYLE:
       return action.choice
@@ -10,4 +10,4 @@ const backsideStyleReducer = (state = 1, action) => {
   }
 }
 
-export default backsideStyleReducer
+export default backsideStyle

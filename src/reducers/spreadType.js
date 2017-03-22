@@ -1,11 +1,11 @@
 import { CHOOSE_SPREAD_TYPE, CLEAR_SPREAD } from '../constants/ActionTypes'
 
-const spreadReducer = (state = null, action) => {
+const spreadType = (state = 'simple', action) => {
   switch (action.type) {
-    case 'CHOOSE_SPREAD_TYPE':
+    case CHOOSE_SPREAD_TYPE:
       return action.choice
 
-    case 'CLEAR_SPREAD':
+    case CLEAR_SPREAD:
       return []
 
     default:
@@ -13,4 +13,4 @@ const spreadReducer = (state = null, action) => {
   }
 }
 
-export default spreadReducer
+export default spreadType

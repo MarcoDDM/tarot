@@ -1,6 +1,6 @@
 import { CHOOSE_CARD, CLEAR_CHOICES } from '../constants/ActionTypes'
 
-const choiceReducer = (state = [], action) => {
+const userChoice = (state = [], action) => {
   switch (action.type) {
     case CHOOSE_CARD:
       return [ ...state ].concat(action.choice)
@@ -13,4 +13,4 @@ const choiceReducer = (state = [], action) => {
   }
 }
 
-export default choiceReducer
+export default userChoice
