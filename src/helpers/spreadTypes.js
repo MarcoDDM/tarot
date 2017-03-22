@@ -4,7 +4,7 @@ module.exports = {
     className: 'simple',
     description: 'Esta é a tiragem mais simples e rápida. Ela oferece uma visão geral sobre a sua questão.',
     cardsFeatures: {
-      1: 'Visão geral'
+      0: 'Visão geral'
     }
   },
   period:{
@@ -12,9 +12,9 @@ module.exports = {
     className: 'period',
     description: 'Esta tiragem oferece uma visão sobre o passado, presente e futuro da sua questão.',
     cardsFeatures: {
-      1: 'Passado',
-      2: 'Presente',
-      3: 'Futuro'
+      0: 'Passado',
+      1: 'Presente',
+      2: 'Futuro'
     }
   }
 
