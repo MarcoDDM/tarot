@@ -1,67 +1,70 @@
-import React, { Component } from 'react'
-import store from '../../store'
+import React from 'react'
+import { connect } from 'react-redux'
 
 import Card from '../Card'
 import spreadTypes from '../../helpers/spreadTypes'
 import './SpreadCards.sass'
 
-class SpreadCards extends Component {
+const SpreadCards = props => {
 
-  constructor(props){
-    super(props)
-    this.state = { cards: [] }
-  }
+  const {
+    display,
+    choices,
+    cardOverlay,
+    spreadType,
+    showSpreadDescription,
+    backsideStyleState } = props
 
-  componentWillMount(){
-    const cards = []
-    const { display, choices, cardOverlay, spreadType } = this.props
-    const amountCards = spreadTypes[spreadType].amountCards
-    const backsideCardStyle = store.getState().backsideStyleState
+  const spread = spreadTypes[spreadType]
+  const amountCards = spread.amountCards
+  const spreadDescription = spread.description
+  const backsideCardStyle = backsideStyleState
 
-    for (let i = 0; i < amountCards; i++){
-      let overlay = choices[i] !== cardOverlay ? true : false
+  const buildCards = value => {
+    let cards = []
+
+    const builder = (value=0) => {
+      if(value === amountCards) return
+
+      let overlay = choices[value] !== cardOverlay ? true : false
+
       cards.push(
         <Card
-          key={i}
-          cardNumber={choices[i]}
+          key={value}
+          cardNumber={choices[value]}
           display={display}
           cardOverlay={overlay}
           backsideCardStyle={backsideCardStyle}
-          spreadTypeCardFeature={spreadTypes[spreadType].cardsFeatures[i+1]}
+          spreadTypeCardFeature={spread.cardsFeatures[value+1]}
         />
       )
+      builder(value + 1)
     }
 
-    this.setState({ ...this.state, cards })
+    builder()
+    return cards
   }
 
-  showSpreadDescription(){
-    const { spreadType } = this.props
-    const amountCards = spreadTypes[spreadType].amountCards
-    const spreadDescription = spreadTypes[spreadType].description
-
+  const buildSpreadDescription = () => {
     return (
       <div><h4>{amountCards} {amountCards === 1 ? 'carta' : 'cartas'}</h4>
       <p className="spreadDescription">{spreadDescription}</p></div>
     )
   }
 
-  render(){
-    const { showSpreadDescription, spreadType } = this.props
-    const classNames = [
-      'spread-cards',
-      spreadTypes[spreadType].className
-    ].join(' ')
+  const classNames = () => ([
+    'spread-cards',
+    spread.className
+  ].join(' '))
 
-    return (
-      <div className={classNames}>
-        <div className="cards">
-          {this.state.cards}
-        </div>
-        {showSpreadDescription && this.showSpreadDescription()}
+  return (
+    <div className={classNames()}>
+      <div className="cards">
+        {buildCards()}
       </div>
-    )
-  }
+      {showSpreadDescription && buildSpreadDescription()}
+    </div>
+  )
 }
 
 SpreadCards.defaultProps = {
@@ -72,4 +75,8 @@ SpreadCards.defaultProps = {
   showSpreadDescription: false
 }
 
-export default SpreadCards
+const mapStateToProps = state => ({
+  backsideStyleState: state.backsideStyleState
+})
+
+export default connect(mapStateToProps)(SpreadCards)

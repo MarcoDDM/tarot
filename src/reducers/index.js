@@ -1,12 +1,9 @@
-import { combineReducers } from 'redux'
-import choiceReducer from './choiceReducer'
-import spreadReducer from './spreadReducer'
-import backsideStyleReducer from './backsideStyleReducer'
+import choiceState from './choiceReducer'
+import spreadState from './spreadReducer'
+import backsideStyleState from './backsideStyleReducer'
 
-const reducers = combineReducers({
-  choiceState: choiceReducer,
-  spreadState: spreadReducer,
-  backsideStyleState: backsideStyleReducer
-})
-
-export default reducers
+export default {
+  choiceState,
+  spreadState,
+  backsideStyleState
+}

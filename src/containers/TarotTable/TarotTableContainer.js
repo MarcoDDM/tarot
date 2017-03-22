@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux'
+import { push } from 'react-router-redux'
 
 import ShuffleCards from '../../components/ShuffleCards'
 import spreadTypes from '../../helpers/spreadTypes'
-import { chooseCard, clearChoices, getChoices } from '../../actions'
+import { chooseCard, clearChoices } from '../../actions'
 
 class TarotTableContainer extends Component {
 
@@ -12,31 +12,26 @@ class TarotTableContainer extends Component {
     super(props)
 
     this.state = {
-      canChoice: true,
-      spreadType: 0
+      canChoice: true
     }
   }
 
   componentWillMount(){
-    let spreadType = this.props.spreadState
-
-    if(!spreadType){
-      this.props.router.push('/')
-      return
-    }
-
     this.props.clearChoices()
     window.scrollTo(0, 0)
   }
 
   handleChoice(choice){
     this.props.chooseCard(choice)
-    let choices = this.props.choiceState
-    let spreadAmountCards = spreadTypes[this.props.spreadState].amountCards
+  }
+
+  componentWillReceiveProps(props){
+    let choices = props.choiceState
+    let spreadAmountCards = spreadTypes[props.spreadState].amountCards
 
     if(choices.length === spreadAmountCards){
       this.setState({ canChoice: false })
-      setTimeout(() => this.props.router.push(`/reading`), 300)
+      setTimeout(() => props.router.push(`/reading`), 300)
     }
   }
 
@@ -66,10 +61,10 @@ const mapStateToProps = state => ({
   choiceState: state.choiceState
 })
 
-const matchDispatchToProps = dispatch =>
-  bindActionCreators({
-    chooseCard, clearChoices, getChoices
-  }, dispatch)
+const mapDispatchToProps = dispatch => ({
+  chooseCard: choice => dispatch(chooseCard(choice)),
+  clearChoices: () => dispatch(clearChoices()),
+  navigate: route => dispatch(push(route))
+})
 
-
-export default connect(mapStateToProps, matchDispatchToProps)(TarotTableContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(TarotTableContainer)

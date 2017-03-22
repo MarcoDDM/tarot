@@ -1,15 +1,16 @@
 import React from 'react'
-import store from '../../store'
+import { connect } from 'react-redux'
+import { push } from 'react-router-redux'
 
 import { Row, Col } from '../../components/Grid'
 import ButtonSpreadType from '../../components/ButtonSpreadType'
 import { chooseSpreadType } from '../../actions'
 
-const IndexContainer = ({ router }) => {
+const IndexContainer = ({ chooseSpreadType, navigate }) => {
 
   const handleChoice = choice => {
-    store.dispatch(chooseSpreadType(choice))
-    router.push(`/tarot-table`)
+    chooseSpreadType(choice)
+    navigate('/tarot-table')
   }
 
   return (
@@ -27,4 +28,9 @@ const IndexContainer = ({ router }) => {
   )
 }
 
-export default IndexContainer
+const mapDispatchToProps = dispatch => ({
+  chooseSpreadType: choice => dispatch(chooseSpreadType(choice)),
+  navigate: route => dispatch(push(route))
+})
+
+export default connect(null, mapDispatchToProps)(IndexContainer)

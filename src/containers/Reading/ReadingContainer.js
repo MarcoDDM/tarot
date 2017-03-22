@@ -1,59 +1,42 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { connect } from 'react-redux'
+import { push } from 'react-router-redux'
+
 import RaisedButton from 'material-ui/RaisedButton'
 import CardDetails from '../../components/CardDetails'
-import store from '../../store'
 import './ReadingContainer.sass'
 
-const btnStyle = { marginBottom: 33 }
+const ReadingContainer = ({ choiceState, spreadState, navigate }) => {
 
-class ReadingContainer extends Component {
+  window.scrollTo(0, 0)
 
-  constructor(){
-    super()
-    this.state = {
-      choices: [],
-      spreadType: ''
-    }
-  }
-
-  componentWillMount(){
-    let choices = store.getState().choiceState
-    let spreadType = store.getState().spreadState
-
-    if(!choices || !choices.length){
-      this.goToHome()
-      return
-    }
-
-    this.setState({ ...this.state, choices, spreadType })
-    window.scrollTo(0, 0)
-  }
-
-  goToHome(){
-    this.props.router.push('/')
-  }
-
-  render(){
-    const choices = this.state.choices
-
-    const cardInfo = choices.map(card => {
-      return (
-        <CardDetails
-          key={card}
-          card={card}
-          choices={choices}
-          spreadType={this.state.spreadType} />
-      )
-    })
-
+  const cardInfo = choiceState.map(card => {
     return (
-      <div className="reading">
-        <RaisedButton label="Novo jogo" style={btnStyle} onTouchTap={() => this.goToHome()} />
-        {cardInfo}
-        <RaisedButton label="Novo jogo" style={btnStyle} onTouchTap={() => this.goToHome()} />
-      </div>
+      <CardDetails
+        key={card}
+        card={card}
+        choices={choiceState}
+        spreadType={spreadState} />
     )
-  }
+  })
+
+  const btnStyle = { marginBottom: 33 }
+
+  return (
+    <div className="reading">
+      <RaisedButton label="Novo jogo" style={btnStyle} onTouchTap={() => navigate('/')} />
+      {cardInfo}
+    </div>
+  )
 }
 
-export default ReadingContainer
+const mapStateToProps = state => ({
+  spreadState: state.spreadState,
+  choiceState: state.choiceState
+})
+
+const mapDispatchToProps = dispatch => ({
+  navigate: route => dispatch(push(route))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(ReadingContainer)
