@@ -35,7 +35,7 @@ const SpreadCards = props => {
           display={display}
           cardOverlay={overlay}
           backsideCardStyle={backsideCardStyle}
-          spreadTypeCardFeature={spread.cardsFeatures[value+1]}
+          spreadTypeCardFeature={spread.cardsFeatures[value]}
         />
       )
       builder(value + 1)
