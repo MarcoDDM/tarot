@@ -26,8 +26,8 @@ class TarotTableContainer extends Component {
   }
 
   componentWillReceiveProps(props){
-    let choices = props.choiceState
-    let spreadAmountCards = spreadTypes[props.spreadState].amountCards
+    let choices = props.userChoiceState
+    let spreadAmountCards = spreadTypes[props.spreadTypeState].amountCards
 
     if(choices.length === spreadAmountCards){
       this.setState({ canChoice: false })
@@ -36,7 +36,7 @@ class TarotTableContainer extends Component {
   }
 
   headMessage(){
-    const amountCards = spreadTypes[this.props.spreadState].amountCards
+    const amountCards = spreadTypes[this.props.spreadTypeState].amountCards
 
     const message = `
       ${amountCards}
@@ -49,7 +49,7 @@ class TarotTableContainer extends Component {
   render() {
     return (
       <div className="tarot-table">
-        {this.props.spreadState && this.headMessage()}
+        {this.props.spreadTypeState && this.headMessage()}
         <ShuffleCards handleChoice={choice => this.state.canChoice && this.handleChoice(choice)} />
       </div>
     )
@@ -57,8 +57,8 @@ class TarotTableContainer extends Component {
 }
 
 const mapStateToProps = state => ({
-  spreadState: state.spreadState,
-  choiceState: state.choiceState
+  spreadTypeState: state.spreadTypeState,
+  userChoiceState: state.userChoiceState
 })
 
 const mapDispatchToProps = dispatch => ({

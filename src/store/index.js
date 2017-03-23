@@ -3,8 +3,11 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
 import { syncHistoryWithStore, routerReducer, routerMiddleware } from 'react-router-redux'
 
 import thunk from 'redux-thunk'
+import createLogger from 'redux-logger'
 import promise from 'redux-promise'
 import reducers from '../reducers'
+
+const logger = createLogger()
 
 export const store = createStore(
   combineReducers({
@@ -12,7 +15,7 @@ export const store = createStore(
     routing: routerReducer,
   }),
   compose(
-    applyMiddleware(thunk, promise),
+    applyMiddleware(thunk, promise, logger),
     applyMiddleware(routerMiddleware(hashHistory)),
   ),
 )

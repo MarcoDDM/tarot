@@ -20,7 +20,7 @@ render(
         <IndexRoute component={IndexContainer}/>
         <Route path="tarot-table" component={TarotTableContainer}
           onEnter={() => validateRoute('tarot-table', store)} />
-        <Route path="reading" component={ReadingContainer} 
+        <Route path="reading" component={ReadingContainer}
           onEnter={() => validateRoute('reading', store)} />
         <Route path="configs" component={ConfigsContainer} />
       </Route>
