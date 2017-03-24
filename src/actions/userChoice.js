@@ -1,9 +1,9 @@
 import { CHOOSE_CARD, CLEAR_CHOICES } from '../constants/ActionTypes'
 
-export const chooseCard = choice =>
+export const chooseCard = payload =>
   ({
     type: CHOOSE_CARD,
-    choice
+    payload
   })
 
 export const clearChoices = () =>
