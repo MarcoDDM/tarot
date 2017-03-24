@@ -1,9 +1,9 @@
-import choiceState from './choiceReducer'
-import spreadState from './spreadReducer'
-import backsideStyleState from './backsideStyleReducer'
+import userChoiceState from './userChoice'
+import spreadTypeState from './spreadType'
+import backsideStyleState from './backsideStyle'
 
 export default {
-  choiceState,
-  spreadState,
+  userChoiceState,
+  spreadTypeState,
   backsideStyleState
 }

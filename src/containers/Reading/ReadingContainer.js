@@ -6,17 +6,17 @@ import RaisedButton from 'material-ui/RaisedButton'
 import CardDetails from '../../components/CardDetails'
 import './ReadingContainer.sass'
 
-const ReadingContainer = ({ choiceState, spreadState, navigate }) => {
+const ReadingContainer = ({ userChoiceState, spreadTypeState, navigate }) => {
 
   window.scrollTo(0, 0)
 
-  const cardInfo = choiceState.map(card => {
+  const cardInfo = userChoiceState.map(card => {
     return (
       <CardDetails
         key={card}
         card={card}
-        choices={choiceState}
-        spreadType={spreadState} />
+        choices={userChoiceState}
+        spreadType={spreadTypeState} />
     )
   })
 
@@ -31,8 +31,8 @@ const ReadingContainer = ({ choiceState, spreadState, navigate }) => {
 }
 
 const mapStateToProps = state => ({
-  spreadState: state.spreadState,
-  choiceState: state.choiceState
+  spreadTypeState: state.spreadTypeState.type,
+  userChoiceState: state.userChoiceState
 })
 
 const mapDispatchToProps = dispatch => ({

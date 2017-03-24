@@ -52,7 +52,7 @@ class ShuffleCards extends Component {
 }
 
 const mapStateToProps = state => ({
-  backsideStyleState: state.backsideStyleState,
+  backsideStyleState: state.backsideStyleState.style,
 })
 
 export default connect(mapStateToProps)(ShuffleCards)
