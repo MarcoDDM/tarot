@@ -1,9 +1,13 @@
 import { CHOOSE_BACKSIDE_STYLE } from '../constants/ActionTypes'
 
-const backsideStyle = (state = 1, action) => {
+const defaultState = { style: 1 }
+
+const backsideStyle = (state = defaultState, action = {}) => {
   switch (action.type) {
     case CHOOSE_BACKSIDE_STYLE:
-      return action.choice
+      return Object.assign({}, state, {
+        style: action.payload
+      })
 
     default:
       return state

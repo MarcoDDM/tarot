@@ -57,7 +57,7 @@ class TarotTableContainer extends Component {
 }
 
 const mapStateToProps = state => ({
-  spreadTypeState: state.spreadTypeState,
+  spreadTypeState: state.spreadTypeState.type,
   userChoiceState: state.userChoiceState
 })
 

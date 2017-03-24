@@ -1,9 +1,13 @@
 import { CHOOSE_SPREAD_TYPE, CLEAR_SPREAD } from '../constants/ActionTypes'
 
-const spreadType = (state = 'simple', action) => {
+const defaultState = { type: 'simple' }
+
+const spreadType = (state = defaultState, action = {}) => {
   switch (action.type) {
     case CHOOSE_SPREAD_TYPE:
-      return action.choice
+      return Object.assign({}, state, {
+        type: action.payload
+      })
 
     case CLEAR_SPREAD:
       return []
