@@ -7,6 +7,8 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import injectTapEventPlugin from 'react-tap-event-plugin'
 
 import HeaderContainer from '../Header/HeaderContainer'
+import Notification from '../../components/Notification'
+
 import 'bootstrap-css-only'
 import '../../assets/css/base.sass'
 import '../../assets/css/animations.sass'
@@ -27,6 +29,7 @@ const App = ({ children, location }) => (
           {React.cloneElement(children, { key: location.pathname })}
         </ReactCSSTransitionGroup>
       </div>
+      <Notification />
     </main>
   </MuiThemeProvider>
 )
