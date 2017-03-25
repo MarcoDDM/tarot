@@ -2,11 +2,10 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
 
-import { Row, Col } from '../../components/Grid'
-import ButtonSpreadType from '../../components/ButtonSpreadType'
-import { chooseSpreadType } from '../../actions'
+import { Row, Col, SpreadCards } from '../components'
+import { chooseSpreadType } from '../actions'
 
-const IndexContainer = ({ chooseSpreadType, navigate }) => {
+const Home = ({ chooseSpreadType, navigate }) => {
 
   const handleChoice = choice => {
     chooseSpreadType(choice)
@@ -14,14 +13,18 @@ const IndexContainer = ({ chooseSpreadType, navigate }) => {
   }
 
   return (
-    <div className="index">
+    <div>
       <h1 className="page-title">Escolha o tipo de tiragem:</h1>
       <Row>
         <Col lg="3" md="4" sm="6" xs="12" offset={['lg', 3]}>
-          <ButtonSpreadType spreadType="simple" click={choice => handleChoice(choice)} />
+          <button className="button-spread-type" onClick={() => handleChoice('simple')}>
+            <SpreadCards spreadType="simple" showSpreadDescription={true} />
+          </button>
         </Col>
         <Col lg="3" md="4" sm="6" xs="12">
-          <ButtonSpreadType spreadType="period" click={choice => handleChoice(choice)} />
+          <button className="button-spread-type" onClick={() => handleChoice('period')}>
+            <SpreadCards spreadType="period" showSpreadDescription={true} />
+          </button>
         </Col>
       </Row>
     </div>
@@ -33,4 +36,4 @@ const mapDispatchToProps = dispatch => ({
   navigate: route => dispatch(push(route))
 })
 
-export default connect(null, mapDispatchToProps)(IndexContainer)
+export default connect(null, mapDispatchToProps)(Home)

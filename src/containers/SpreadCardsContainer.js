@@ -1,9 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { CardContainer } from '../../containers'
-import { spreadTypes } from '../../helpers'
-import './SpreadCards.sass'
+import { CardContainer } from './'
+import { spreadTypes } from '../helpers'
 
 const SpreadCards = props => {
 

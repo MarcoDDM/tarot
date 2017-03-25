@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import HeaderBar from '../../components/HeaderBar'
-import DrawerMenu from '../../components/DrawerMenu'
+import { HeaderBar, DrawerMenu } from '../components'
 
 class HeaderContainer extends Component {
 

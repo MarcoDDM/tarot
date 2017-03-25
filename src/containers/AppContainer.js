@@ -6,12 +6,12 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import injectTapEventPlugin from 'react-tap-event-plugin'
 
-import HeaderContainer from '../Header/HeaderContainer'
-import Notification from '../../components/Notification'
+import { HeaderContainer } from './'
+import { Notification } from '../components'
 
 import 'bootstrap-css-only'
-import '../../assets/css/base.sass'
-import '../../assets/css/animations.sass'
+import '../assets/css/base.sass'
+import '../assets/css/animations.sass'
 
 injectTapEventPlugin()
 

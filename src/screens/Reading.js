@@ -3,16 +3,15 @@ import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
 
 import RaisedButton from 'material-ui/RaisedButton'
-import CardDetails from '../../components/CardDetails'
-import './ReadingContainer.sass'
+import { CardDetailsContainer } from '../containers'
 
-const ReadingContainer = ({ userChoiceState, spreadTypeState, navigate }) => {
+const Reading = ({ userChoiceState, spreadTypeState, navigate }) => {
 
   window.scrollTo(0, 0)
 
   const cardInfo = userChoiceState.map(card => {
     return (
-      <CardDetails
+      <CardDetailsContainer
         key={card}
         card={card}
         choices={userChoiceState}
@@ -39,4 +38,4 @@ const mapDispatchToProps = dispatch => ({
   navigate: route => dispatch(push(route))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(ReadingContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(Reading)

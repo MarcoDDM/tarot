@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { Row, Col } from '../../components/Grid'
+import { Row, Col } from '../../components'
 import { chooseBacksideStyle, showNotification } from '../../actions'
 
 import './Configs.sass'
