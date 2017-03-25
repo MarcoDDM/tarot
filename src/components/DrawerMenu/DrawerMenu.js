@@ -7,6 +7,7 @@ import MenuItem from 'material-ui/MenuItem'
 import Divider from 'material-ui/Divider'
 
 import New from 'material-ui/svg-icons/av/fiber-new'
+import Triangle from 'material-ui/svg-icons/action/change-history'
 import Settings from 'material-ui/svg-icons/action/settings'
 import Help from 'material-ui/svg-icons/action/help'
 import Build from 'material-ui/svg-icons/action/build'
@@ -35,6 +36,10 @@ const DrawerMenu = ({ open, onRequestChange, navigate }) => {
         primaryText="Novo jogo"
         leftIcon={<New/>}
         onTouchTap={() => handleMenuItem('/')} />
+      <MenuItem
+        primaryText="Arcanos"
+        leftIcon={<Triangle/>}
+        onTouchTap={() => handleMenuItem('/arcanums')} />
       <MenuItem
         primaryText="Configurações"
         leftIcon={<Settings/>}

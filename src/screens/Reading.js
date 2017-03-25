@@ -13,7 +13,7 @@ const Reading = ({ userChoiceState, spreadTypeState, navigate }) => {
     return (
       <CardDetailsContainer
         key={card}
-        card={card}
+        cardNumber={card}
         choices={userChoiceState}
         spreadType={spreadTypeState} />
     )

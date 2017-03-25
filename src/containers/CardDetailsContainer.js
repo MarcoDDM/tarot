@@ -2,10 +2,10 @@ import React from 'react'
 import { CardDetails, SpreadCards } from '../components'
 import { arcanums } from '../helpers'
 
-const CardDetailsContainer = ({ card, choices, spreadType }) => {
+const CardDetailsContainer = ({ cardNumber, choices=[1], spreadType }) => {
 
-  const cardImage = require(`../assets/img/major-arcanums/rider-waite/${card}.png`)
-  const arcanum = arcanums.major[card]
+  const cardImage = require(`../assets/img/major-arcanums/rider-waite/${cardNumber}.png`)
+  const arcanum = arcanums.major[cardNumber]
 
   const cardInfoImage = () => {
     if(choices.length === 1){
@@ -15,7 +15,7 @@ const CardDetailsContainer = ({ card, choices, spreadType }) => {
     return (
       <SpreadCards
         display="frontside"
-        cardOverlay={card}
+        cardOverlay={cardNumber}
         choices={choices}
         spreadType={spreadType} />
     )
@@ -23,9 +23,9 @@ const CardDetailsContainer = ({ card, choices, spreadType }) => {
 
   return (
     <CardDetails
-      card={card}
-      arcanum={arcanum}
-      details={cardInfoImage()}
+      cardNumber={cardNumber}
+      cardDetails={arcanum}
+      cardImage={cardInfoImage()}
     />
   )
 }
