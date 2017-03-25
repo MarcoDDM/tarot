@@ -3,7 +3,7 @@ import { push } from 'react-router-redux'
 export const validateRoute = (route, store) => {
   switch (route) {
     case 'tarot-table':
-      if(!store.getState().spreadTypeState)
+      if(!store.getState().spreadTypeState.type)
         store.dispatch(push('/'))
       break
 

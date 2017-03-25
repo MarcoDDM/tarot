@@ -1,37 +1,29 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { connect } from 'react-redux'
+
+import { showNotification } from '../../actions'
 import Snackbar from 'material-ui/Snackbar'
 
-class Notification extends Component {
+const Notification = ({ notificationState, showNotification }) => {
 
-  constructor(props){
-    super(props)
-    this.state = { open: false }
-  }
+  const handleRequestClose = () => showNotification({ open: false })
 
-  componentWillReceiveProps(nextProps){
-    this.setState({ ...this.state, open: nextProps.open })
-  }
-
-  handleRequestClose(){
-    this.setState({ ...this.state, open: false })
-  }
-
-  render(){
-    return(
-      <Snackbar
-        open={this.state.open}
-        message={this.props.message}
-        autoHideDuration={this.props.duration}
-        onRequestClose={() => this.handleRequestClose()}
-      />
-    )
-  }
+  return(
+    <Snackbar
+      open={notificationState.open}
+      message={notificationState.message}
+      autoHideDuration={notificationState.duration}
+      onRequestClose={() => handleRequestClose()}
+    />
+  )
 }
 
-Notification.defaultProps = {
-  open: false,
-  message: '',
-  duration: 0
-}
+const mapStateToProps = state => ({
+  notificationState: state.notificationState
+})
 
-export default Notification
+const mapDispatchToProps = dispatch => ({
+  showNotification: notification => dispatch(showNotification(notification))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Notification)

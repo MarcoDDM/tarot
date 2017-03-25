@@ -1,5 +1,6 @@
 import React from 'react'
-import { hashHistory } from 'react-router'
+import { connect } from 'react-redux'
+import { push } from 'react-router-redux'
 
 import Drawer from 'material-ui/Drawer'
 import MenuItem from 'material-ui/MenuItem'
@@ -10,20 +11,18 @@ import Settings from 'material-ui/svg-icons/action/settings'
 import Help from 'material-ui/svg-icons/action/help'
 import Build from 'material-ui/svg-icons/action/build'
 
-const DrawerMenu = ({ open, onRequestChange }) => {
+const DrawerMenu = ({ open, onRequestChange, navigate }) => {
 
   const handleOnRequestChange = () => onRequestChange()
 
   const handleMenuItem = route => {
-    if(hashHistory.getCurrentLocation().pathname !== route){
-      onRequestChange()
-      setTimeout(() => hashHistory.push(route), 100)
-    }
-
     if(route==='soon'){
       alert('Em breve...')
       return
     }
+
+    onRequestChange()
+    setTimeout(() => navigate(route), 100)
   }
 
   return (
@@ -53,4 +52,8 @@ const DrawerMenu = ({ open, onRequestChange }) => {
   )
 }
 
-export default DrawerMenu
+const mapDispatchToProps = dispatch => ({
+  navigate: route => dispatch(push(route))
+})
+
+export default connect(null, mapDispatchToProps)(DrawerMenu)
