@@ -1,6 +1,6 @@
 import React from 'react'
-import { CardDetails, SpreadCards } from '../components'
-import { CardContainer } from '../containers'
+import { CardDetails } from '../components'
+import { CardContainer, SpreadCardsContainer } from '../containers'
 import { arcanums, formatIfIsReversedCard, checkIfIsReversedCard } from '../helpers'
 
 const CardDetailsContainer = ({ cardNumber, choices=[1], spreadType }) => {
@@ -20,7 +20,7 @@ const CardDetailsContainer = ({ cardNumber, choices=[1], spreadType }) => {
     }
 
     return (
-      <SpreadCards
+      <SpreadCardsContainer
         display="frontside"
         cardOverlay={cardNumberFormated}
         choices={choices}

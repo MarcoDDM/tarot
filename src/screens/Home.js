@@ -2,7 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
 
-import { Row, Col, SpreadCards } from '../components'
+import { Row, Col } from '../components'
+import { SpreadCardsContainer } from '../containers'
 import { chooseSpreadType } from '../actions'
 
 const Home = ({ chooseSpreadType, navigate }) => {
@@ -18,12 +19,12 @@ const Home = ({ chooseSpreadType, navigate }) => {
       <Row>
         <Col lg="3" md="4" sm="6" xs="12" offset={['lg', 3]}>
           <button className="button-spread-type" onClick={() => handleChoice('simple')}>
-            <SpreadCards spreadType="simple" showSpreadDescription={true} />
+            <SpreadCardsContainer spreadType="simple" showSpreadDescription={true} />
           </button>
         </Col>
         <Col lg="3" md="4" sm="6" xs="12">
           <button className="button-spread-type" onClick={() => handleChoice('period')}>
-            <SpreadCards spreadType="period" showSpreadDescription={true} />
+            <SpreadCardsContainer spreadType="period" showSpreadDescription={true} />
           </button>
         </Col>
       </Row>
