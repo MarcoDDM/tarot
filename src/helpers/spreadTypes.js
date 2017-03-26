@@ -1,4 +1,4 @@
-module.exports = {
+export const spreadTypes = {
   simple: {
     amountCards: 1,
     className: 'simple',
@@ -17,5 +17,4 @@ module.exports = {
       2: 'Futuro'
     }
   }
-
 }

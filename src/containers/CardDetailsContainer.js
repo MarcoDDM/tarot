@@ -1,21 +1,28 @@
 import React from 'react'
 import { CardDetails, SpreadCards } from '../components'
-import { arcanums } from '../helpers'
+import { CardContainer } from '../containers'
+import { arcanums, formatIfIsReversedCard, checkIfIsReversedCard } from '../helpers'
 
 const CardDetailsContainer = ({ cardNumber, choices=[1], spreadType }) => {
 
-  const cardImage = require(`../assets/img/major-arcanums/rider-waite/${cardNumber}.png`)
-  const arcanum = arcanums.major[cardNumber]
+  const cardNumberFormated = formatIfIsReversedCard(cardNumber)
+  const arcanum = arcanums.major[cardNumberFormated]
 
-  const cardInfoImage = () => {
+  const buildCards = () => {
     if(choices.length === 1){
-      return (<img src={cardImage} alt={arcanum.name} className="card-image img-responsive"/>)
+      return (
+        <CardContainer
+          cardNumber={cardNumberFormated}
+          display="frontside"
+          reversed={checkIfIsReversedCard(cardNumber)}
+        />
+      )
     }
 
     return (
       <SpreadCards
         display="frontside"
-        cardOverlay={cardNumber}
+        cardOverlay={cardNumberFormated}
         choices={choices}
         spreadType={spreadType} />
     )
@@ -23,9 +30,9 @@ const CardDetailsContainer = ({ cardNumber, choices=[1], spreadType }) => {
 
   return (
     <CardDetails
-      cardNumber={cardNumber}
+      cardNumber={cardNumberFormated}
       cardDetails={arcanum}
-      cardImage={cardInfoImage()}
+      cardImage={buildCards()}
     />
   )
 }

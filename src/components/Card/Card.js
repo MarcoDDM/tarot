@@ -12,7 +12,8 @@ class Card extends Component {
 
   handleChoice(){
     this.setState({ selected: true })
-    this.props.handleChoice && this.props.handleChoice(this.props.cardNumber)
+    const cardNumber = this.props.reversed ? -this.props.cardNumber : this.props.cardNumber
+    this.props.handleChoice && this.props.handleChoice(cardNumber)
   }
 
   spreadTypeCardFeature(){
@@ -23,6 +24,7 @@ class Card extends Component {
     return [
       'card',
       this.state.selected || this.props.display === 'frontside' ? 'show-frontside' : '',
+      this.props.reversed ? 'reversed' : '',
       this.props.cardOverlay ? 'overlay' : ''
     ].join(' ')
   }

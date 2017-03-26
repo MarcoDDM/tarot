@@ -10,6 +10,7 @@ const CardContainer = props => {
     cardOverlay,
     backsideStyle,
     handleChoice,
+    reversed,
     spreadTypeCardFeature
   } = props
 
@@ -23,6 +24,7 @@ const CardContainer = props => {
       cardOverlay={cardOverlay}
       backsideImage={backsideImage}
       frontsideImage={frontsideImage}
+      reversed={reversed}
       handleChoice={choice => handleChoice && handleChoice(choice)}
       spreadTypeCardFeature={spreadTypeCardFeature}
     />
