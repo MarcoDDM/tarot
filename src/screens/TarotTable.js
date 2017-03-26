@@ -52,12 +52,18 @@ class TarotTable extends Component {
         <Col lg="2" md="2" sm="2" xs="3" key={i}>
           <CardContainer
             cardNumber={i}
+            reversed={this.reversedCard()}
             handleChoice={choice => this.state.canChoice && this.props.chooseCard(choice)} />
         </Col>
       )
     }
 
     this.shuffleCards(cards)
+  }
+
+  reversedCard(){
+    let random = Math.floor((Math.random() * 100) + 1)
+    return random <= 50 ? true : false
   }
 
   shuffleCards(cards){

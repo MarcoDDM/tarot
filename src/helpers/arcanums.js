@@ -1,4 +1,4 @@
-module.exports = {
+export const arcanums = {
 	major: {
 		0: {
       name: 'O Louco',
