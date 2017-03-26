@@ -1,52 +1,16 @@
 import React from 'react'
-import { connect } from 'react-redux'
-
-import { CardContainer } from '../../containers'
-import { spreadTypes, formatIfIsReversedCard, checkIfIsReversedCard } from '../../helpers'
+import { spreadTypes } from '../../helpers'
 import './SpreadCards.sass'
 
-const SpreadCards = props => {
-
-  const {
-    display,
-    choices,
-    cardOverlay,
-    spreadType,
-    showSpreadDescription,
-    backsideStyleState } = props
+const SpreadCards = ({ cards, spreadType, showSpreadDescription }) => {
 
   const spread = spreadTypes[spreadType]
   const amountCards = spread.amountCards
   const spreadDescription = spread.description
-  const backsideCardStyle = backsideStyleState
 
-  const buildCards = value => {
-    const cards = []
-
-    for (let i = 0; i < amountCards; i++){
-      let cardNumber = formatIfIsReversedCard(choices[i])
-      let overlay = cardNumber !== cardOverlay ? true : false
-      cards.push(
-        <CardContainer
-          key={i}
-          cardNumber={cardNumber}
-          display={display}
-          cardOverlay={overlay}
-          reversed={checkIfIsReversedCard(choices[i])}
-          backsideCardStyle={backsideCardStyle}
-          spreadTypeCardFeature={spread.cardsFeatures[i]}
-        />
-      )
-    }
-    return cards
-  }
-
-  const buildSpreadDescription = () => {
-    return (
-      <div><h4>{amountCards} {amountCards === 1 ? 'carta' : 'cartas'}</h4>
-      <p className="spreadDescription">{spreadDescription}</p></div>
-    )
-  }
+  const buildSpreadDescription = () => (
+    <div><h4>{amountCards} {amountCards === 1 ? 'carta' : 'cartas'}</h4>
+    <p className="spreadDescription">{spreadDescription}</p></div>)
 
   const classNames = () => ([
     'spread-cards',
@@ -56,23 +20,11 @@ const SpreadCards = props => {
   return (
     <div className={classNames()}>
       <div className="cards">
-        {buildCards()}
+        {cards}
       </div>
       {showSpreadDescription && buildSpreadDescription()}
     </div>
   )
 }
 
-SpreadCards.defaultProps = {
-  choices: [],
-  cardOverlay: undefined,
-  display: 'backside',
-  spreadType: 'simple',
-  showSpreadDescription: false
-}
-
-const mapStateToProps = state => ({
-  backsideStyleState: state.backsideStyleState.style
-})
-
-export default connect(mapStateToProps)(SpreadCards)
+export default SpreadCards
