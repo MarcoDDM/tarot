@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import { CardContainer } from './'
 import { SpreadCards } from '../components'
-import { spreadTypes, formatIfIsReversedCard, checkIfIsReversedCard } from '../helpers'
+import { spreadTypes, formatReversedCard, isReversedCard } from '../helpers'
 
 const SpreadCardsContainer = props => {
 
@@ -21,7 +21,7 @@ const SpreadCardsContainer = props => {
   const buildCards = value => {
     const cards = []
     for (let i = 0; i < amountCards; i++){
-      let cardNumber = formatIfIsReversedCard(choices[i])
+      let cardNumber = formatReversedCard(choices[i])
       let overlay = cardNumber !== cardOverlay ? true : false
       cards.push(
         <CardContainer
@@ -29,7 +29,7 @@ const SpreadCardsContainer = props => {
           cardNumber={cardNumber}
           display={display}
           cardOverlay={overlay}
-          reversed={checkIfIsReversedCard(choices[i])}
+          reversed={isReversedCard(choices[i])}
           backsideCardStyle={backsideCardStyle}
           spreadTypeCardFeature={spread.cardsFeatures[i]}
         />

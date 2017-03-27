@@ -1,11 +1,11 @@
 import React from 'react'
 import { CardDetails } from '../components'
 import { CardContainer, SpreadCardsContainer } from '../containers'
-import { arcanums, formatIfIsReversedCard, checkIfIsReversedCard } from '../helpers'
+import { arcanums, formatReversedCard, isReversedCard } from '../helpers'
 
 const CardDetailsContainer = ({ cardNumber, choices=[1], spreadType }) => {
-
-  const cardNumberFormated = formatIfIsReversedCard(cardNumber)
+  
+  const cardNumberFormated = formatReversedCard(cardNumber)
   const arcanum = arcanums.major[cardNumberFormated]
 
   const buildCards = () => {
@@ -14,7 +14,7 @@ const CardDetailsContainer = ({ cardNumber, choices=[1], spreadType }) => {
         <CardContainer
           cardNumber={cardNumberFormated}
           display="frontside"
-          reversed={checkIfIsReversedCard(cardNumber)}
+          reversed={isReversedCard(cardNumber)}
         />
       )
     }

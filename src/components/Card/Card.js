@@ -12,7 +12,7 @@ class Card extends Component {
 
   handleChoice(){
     this.setState({ selected: true })
-    const cardNumber = this.props.reversed ? -this.props.cardNumber : this.props.cardNumber
+    const cardNumber = this.props.reversed ? `-${this.props.cardNumber}` : this.props.cardNumber
     this.props.handleChoice && this.props.handleChoice(cardNumber)
   }
 
