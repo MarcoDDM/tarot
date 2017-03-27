@@ -12,6 +12,8 @@ const CardDetails = ({ cardNumber, cardDetails, cardImage }) => {
           </Col>
           <Col lg="8" md="10" sm="9" sx="12">
             <h2>{cardDetails.name} - Arcano {cardNumber}</h2>
+            <p><b>Significado: </b>{cardDetails.meaning}</p>
+            <p><b>Inverso: </b>{cardDetails.inverse}</p>
             <h3>{cardDetails.attribute}</h3>
             <p>{cardDetails.description}</p>
           </Col>

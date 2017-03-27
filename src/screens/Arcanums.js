@@ -5,7 +5,7 @@ import { arcanums } from '../helpers'
 const Arcanums = () => {
 
   const cards = []
-  const amountCards = 21
+  const amountCards = 22
 
   for (let i = 0; i < amountCards; i++){
     const cardImage = (
