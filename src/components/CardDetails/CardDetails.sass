@@ -20,3 +20,14 @@
 
   p
     font-size: 1.4em
+
+  .description
+    display: inline-block
+    max-height: 0px
+    overflow: hidden
+    transition: max-height 0.5s ease
+
+  &.show-full-description
+    .description
+      max-height: 1000px
+      transition: max-height 0.5s ease
