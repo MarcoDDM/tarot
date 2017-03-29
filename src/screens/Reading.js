@@ -19,11 +19,12 @@ const Reading = ({ userChoiceState, spreadTypeState, navigate }) => {
     )
   })
 
-  const btnStyle = { marginBottom: 33 }
+  const btnStyle = { marginBottom: 33, marginRight: 20 }
 
   return (
     <div className="reading">
       <RaisedButton label="Novo jogo" style={btnStyle} onTouchTap={() => navigate('/')} />
+      <RaisedButton label="Salvar jogo" style={btnStyle} onTouchTap={() => navigate('/save-game')} />
       {cardInfo}
     </div>
   )
