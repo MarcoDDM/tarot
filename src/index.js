@@ -11,6 +11,7 @@ import {
   Home,
   TarotTable,
   Reading,
+  SaveGame,
   Arcanums,
   Configs,
 } from './screens'
@@ -24,6 +25,7 @@ render(
           onEnter={() => validateRoute('tarot-table', store)} />
         <Route path="reading" component={Reading}
           onEnter={() => validateRoute('reading', store)} />
+        <Route path="save-game" component={SaveGame} />
         <Route path="arcanums" component={Arcanums} />
         <Route path="configs" component={Configs} />
       </Route>
