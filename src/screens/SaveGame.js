@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
-import { loadState, saveState } from '../helpers'
-import { showNotification } from '../actions'
+import { saveGame, showNotification } from '../actions'
 
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
@@ -39,16 +38,14 @@ class SaveGame extends Component {
   handleSaveGame(){
     if(!this.state.canSave) return
 
-    const persistedState = loadState()
     const save = {
       spreadType: this.props.spreadTypeState,
       choices: this.props.userChoiceState,
       observations: this.state.observationsField,
       date: new Date(),
     }
+    this.props.saveGame(save)
 
-    persistedState.savedGames.push(save)
-    saveState(persistedState)
     this.setState({ observationsField: '', canSave: false })
 
     this.props.showNotification({
@@ -93,6 +90,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   navigate: route => dispatch(push(route)),
+  saveGame: state => dispatch(saveGame(state)),
   showNotification: notification => dispatch(showNotification(notification))
 })
 
