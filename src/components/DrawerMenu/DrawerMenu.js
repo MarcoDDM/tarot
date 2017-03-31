@@ -11,6 +11,7 @@ import IconA from 'material-ui/svg-icons/content/font-download'
 import Settings from 'material-ui/svg-icons/action/settings'
 import Help from 'material-ui/svg-icons/action/help'
 import Build from 'material-ui/svg-icons/action/build'
+import SavedGames from 'material-ui/svg-icons/device/storage'
 
 const DrawerMenu = ({ open, onRequestChange, navigate }) => {
 
@@ -37,14 +38,18 @@ const DrawerMenu = ({ open, onRequestChange, navigate }) => {
         leftIcon={<New/>}
         onTouchTap={() => handleMenuItem('/')} />
       <MenuItem
+        primaryText="Jogos salvos"
+        leftIcon={<SavedGames/>}
+        onTouchTap={() => handleMenuItem('/saved-games')} />
+      <MenuItem
         primaryText="Arcanos"
         leftIcon={<IconA/>}
         onTouchTap={() => handleMenuItem('/arcanums')} />
+      <Divider />
       <MenuItem
         primaryText="Configurações"
         leftIcon={<Settings/>}
         onTouchTap={() => handleMenuItem('/configs')} />
-      <Divider />
       <MenuItem
         primaryText="Dúvidas"
         leftIcon={<Help/>}
