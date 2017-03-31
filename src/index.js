@@ -12,6 +12,7 @@ import {
   TarotTable,
   Reading,
   SaveGame,
+  SavedGames,
   Arcanums,
   Configs,
 } from './screens'
@@ -24,18 +25,19 @@ render(
         <Route
           path="tarot-table"
           component={TarotTable}
-          onEnter={() => validateRoute('no-spreadtype-state', store)}
+          onEnter={() => validateRoute('spreadtype-state', store)}
         />
         <Route
           path="reading"
           component={Reading}
-          onEnter={() => validateRoute('no-userchoice-state', store)}
+          onEnter={() => validateRoute('userchoice-state', store)}
         />
         <Route
           path="save-game"
           component={SaveGame}
-          onEnter={() => validateRoute('no-userchoice-state', store)}
+          onEnter={() => validateRoute('userchoice-state', store)}
         />
+        <Route path="saved-games" component={SavedGames} />
         <Route path="arcanums" component={Arcanums} />
         <Route path="configs" component={Configs} />
       </Route>

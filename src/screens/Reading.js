@@ -9,10 +9,10 @@ const Reading = ({ userChoiceState, spreadTypeState, navigate }) => {
 
   window.scrollTo(0, 0)
 
-  const cardInfo = userChoiceState.map(card => {
+  const cardInfo = userChoiceState.map((card, i) => {
     return (
       <CardDetailsContainer
-        key={card}
+        key={i}
         cardNumber={card}
         choices={userChoiceState}
         spreadType={spreadTypeState} />

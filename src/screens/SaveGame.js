@@ -6,6 +6,9 @@ import { saveGame, showNotification } from '../actions'
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
 
+import moment from 'moment';
+import 'moment/locale/pt-br';
+
 const styles = {
   root: {
     display: 'block',
@@ -38,15 +41,18 @@ class SaveGame extends Component {
   handleSaveGame(){
     if(!this.state.canSave) return
 
+    this.setState({ observationsField: '', canSave: false })
+
+    const date = moment()
     const save = {
       spreadType: this.props.spreadTypeState,
       choices: this.props.userChoiceState,
       observations: this.state.observationsField,
-      date: new Date(),
+      timestamp: date,
+      fullDate: date.format("dddd, DD [de] MMMM [de] YYYY"),
+      hour: date.format("HH[h]mm a")
     }
     this.props.saveGame(save)
-
-    this.setState({ observationsField: '', canSave: false })
 
     this.props.showNotification({
       open: true,

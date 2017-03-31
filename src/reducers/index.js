@@ -3,7 +3,7 @@ import spreadTypeState from './spreadType'
 import backsideStyleState from './backsideStyle'
 import notificationState from './notification'
 import cardDetailsState from './cardDetails'
-import storageState from './storage'
+import storedState from './storage'
 
 export default {
   userChoiceState,
@@ -11,5 +11,5 @@ export default {
   backsideStyleState,
   notificationState,
   cardDetailsState,
-  storageState
+  storedState
 }
