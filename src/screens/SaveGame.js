@@ -12,7 +12,7 @@ import 'moment/locale/pt-br';
 const styles = {
   root: {
     display: 'block',
-    width: '50%',
+    width: '90%',
     margin: '0 auto'
   },
   floatingLabelStyle: {
@@ -23,7 +23,7 @@ const styles = {
   },
   button: {
     display: 'block',
-    width: '20%',
+    width: '40%',
     margin: '33px auto'
   }
 }

@@ -5,15 +5,10 @@ import { push } from 'react-router-redux'
 import { List, ListItem } from 'material-ui/List'
 import { chooseCard, clearChoices } from '../actions'
 
-const listStyle = {
-  width: '60%',
-  margin: '0 auto',
-}
-
 const SavedGames = props => {
 
   const {
-    storedState, 
+    storedState,
     chooseCard,
     clearChoices,
     navigate
@@ -31,12 +26,13 @@ const SavedGames = props => {
       primaryText={item.observations}
       secondaryText={`${item.fullDate} - ${item.hour}`}
       onClick={() => handleItemClick(item.choices)}
+      secondaryTextLines={3}
     />))
 
   return(
     <div>
       <h1 className="page-title">Jogos salvos</h1>
-      <List style={listStyle}>
+      <List>
         {listItems}
       </List>
     </div>
