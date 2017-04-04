@@ -34,6 +34,7 @@ class SaveGame extends Component {
     super(props)
     this.state = {
       observationsField: '',
+      textFieldError: '',
       canSave: true
     }
   }
@@ -41,6 +42,15 @@ class SaveGame extends Component {
   handleSaveGame(){
     if(!this.state.canSave) return
 
+    if(!this.state.observationsField){
+      this.setState({ textFieldError: 'Preenchimento obrigatório. Dica: digite sua questão.' })
+      return
+    }
+
+    this.saveGame()
+  }
+
+  saveGame(){
     this.setState({ observationsField: '', canSave: false })
 
     const date = moment()
@@ -75,7 +85,8 @@ class SaveGame extends Component {
           style={styles.root}
           floatingLabelStyle={styles.floatingLabelStyle}
           underlineFocusStyle={styles.underlineFocusStyle}
-          onChange={(e, value) => this.setState({ observationsField: value})}
+          errorText={this.state.textFieldError}
+          onChange={(e, value) => this.setState({ observationsField: value, textFieldError: ''})}
           value={this.state.observationsField}
         />
         <RaisedButton

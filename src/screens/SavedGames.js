@@ -26,7 +26,7 @@ const SavedGames = props => {
       primaryText={item.observations}
       secondaryText={`${item.fullDate} - ${item.hour}`}
       onClick={() => handleItemClick(item.choices)}
-      secondaryTextLines={3}
+      secondaryTextLines={2}
     />))
 
   return(

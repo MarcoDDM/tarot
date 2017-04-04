@@ -11,7 +11,7 @@ const storage = (state = defaultState, action = {}) => {
     case SAVE_GAME:
       const newState = Object.assign({}, state, {
         ...loadStoredState(),
-        savedGames: state.savedGames.concat(action.payload)
+        savedGames: [action.payload].concat(state.savedGames)
       })
       updateStoredState(newState)
       return newState
