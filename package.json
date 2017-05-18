@@ -1,8 +1,8 @@
 {
-  "name": "mytarot",
+  "name": "tarot",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://thiagommedeiros.github.io/myTarot",
+  "homepage": "http://thiagommedeiros.github.io/tarot",
   "devDependencies": {
     "autoprefixer": "6.5.1",
     "babel-core": "6.17.0",
