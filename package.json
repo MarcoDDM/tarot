@@ -66,13 +66,16 @@
     "redux": "^3.6.0",
     "redux-logger": "^2.8.2",
     "redux-promise": "^0.5.3",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "snyk": "^1.189.0"
   },
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
-    "deploy": "npm run build&&gh-pages -d build"
+    "deploy": "npm run build&&gh-pages -d build",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -105,5 +108,6 @@
   },
   "eslintConfig": {
     "extends": "react-app"
-  }
+  },
+  "snyk": true
 }
