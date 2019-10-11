@@ -40,7 +40,7 @@ class TarotTable extends Component {
       ${amountCards}
       ${amountCards === 1 ? 'carta' : 'cartas'}
     `
-    return(<h1 className="page-title">Mentalize sua questão e escolha {message}</h1>)
+    return(<h1 className="page-title">Piensa en tu pregunta y elige la carta {message}</h1>)
   }
 
   buildCards(){
