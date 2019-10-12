@@ -1,7 +1,7 @@
 export const arcanums = {
 	major: {
 		0: {
-      name: 'El loco',
+      name: 'El Loco',
       attribute: 'El principio',
       meaning: 'Decisión importante. Te enfrentas a una elección que debes decidir con cuidado, pero también con coraje, y sobre todo, prestando atención a tu intuición e impulsos. Los riesgos deben ser tomados.',
       inverse: 'Existe el peligro de que uno elija mal. Es aconsejable actuar con la mayor precaución y prudencia. Tendencias a la necedad, irresponsabilidad, egoísmo, fantasía y obsesión.',
@@ -148,7 +148,7 @@ export const arcanums = {
       description: 'Cuando aparece esta carta, indica que nuestros pensamientos, palabras y acciones están siendo juzgados en las esferas sutiles, es decir, Dios (o cualquier idea que tenga) está juzgando sus actitudes. Esta carta advierte de la necesidad de alcanzar nuestra propia conciencia. ¿Estamos actuando bien? También podemos ser juzgados por quienes nos rodean, por lo que es muy importante que seamos sinceros y siempre hagamos nuestro mejor esfuerzo. El juicio puede anunciar cambios en nuestras vidas en la estructura y el nivel del suelo. Puede indicar un matrimonio o divorcio, un contrato o el final del mismo. Dependiendo de la situación, esta tarjeta indica que ha llegado al final de un ciclo, será evaluada y, dependiendo de su rendimiento, pasará a un nuevo ciclo. En el nivel amoroso, el Juicio indica noticias, el comienzo de una nueva fase que será feliz. Evalúa tus sentimientos y trata de ser justo y equilibrado. En una relación que enfrenta muchas dificultades, esta tarjeta indica que debes considerar olvidar el pasado y pasar a una nueva fase en tu vida. En el nivel de salud, esta carta indica que debe hacerse exámenes, pruebas, un chequeo general. El juicio aconseja que toda la salud sea analizada para prevenir problemas futuros. En el campo profesional y financiero, puede ser promovido, pero debe proporcionar prueba de su competencia y valor. Aprende a superar los desafíos que te presentan.',
     },
 		21: {
-      name: 'El mundo',
+      name: 'El Mundo',
       attribute: 'La Realización',
       meaning: 'Finalización, realización. Recompensa Libertad Realización de un trabajo bien hecho. Circunstancias muy favorables. Éxtasis Alegría, reconocimiento, riqueza.',
       inverse: 'Actitud negativa, estancamiento. Fracaso Proceso que afecta los sentimientos. Ambiente hostil, todos están en contra. Disposiciones mundanas. Dispersión, distracción. Incapacidad para concentrarse.',
