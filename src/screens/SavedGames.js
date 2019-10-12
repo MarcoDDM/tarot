@@ -31,7 +31,7 @@ const SavedGames = props => {
 
   return(
     <div>
-      <h1 className="page-title">Jogos salvos</h1>
+      <h1 className="page-title">Tiradas guardadas</h1>
       <List>
         {listItems}
       </List>

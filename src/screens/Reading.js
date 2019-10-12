@@ -23,8 +23,8 @@ const Reading = ({ userChoiceState, spreadTypeState, navigate }) => {
 
   return (
     <div className="reading">
-      <RaisedButton label="Novo jogo" style={btnStyle} onTouchTap={() => navigate('/')} />
-      <RaisedButton label="Salvar jogo" style={btnStyle} onTouchTap={() => navigate('/save-game')} />
+      <RaisedButton label="Nueva tirada" style={btnStyle} onTouchTap={() => navigate('/')} />
+      <RaisedButton label="Guardar tirada" style={btnStyle} onTouchTap={() => navigate('/save-game')} />
       {cardInfo}
     </div>
   )

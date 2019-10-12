@@ -15,7 +15,7 @@ const CardContainer = props => {
   } = props
 
   const backsideImage = require(`../assets/img/backside/backside-card-${backsideStyle}.png`)
-  const frontsideImage = require(`../assets/img/major-arcanums/rider-waite/${cardNumber}.png`)
+  const frontsideImage = require(`../assets/img/major-arcanums/marigold-tarot/${cardNumber}.png`)
 
   return (
     <Card

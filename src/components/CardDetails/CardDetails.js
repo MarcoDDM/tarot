@@ -37,13 +37,13 @@ class CardDetails extends React.Component {
             <Col lg="8" md="10" sm="9" sx="12">
               <h2>{this.props.cardDetails.name} - Arcano {this.props.cardNumber}</h2>
               <p><b>Significado: </b>{this.props.cardDetails.meaning}</p>
-              <p><b>Inverso: </b>{this.props.cardDetails.inverse}</p>
+              <p><b>Reverso: </b>{this.props.cardDetails.inverse}</p>
               <div className="description">
                 <h3>{this.props.cardDetails.attribute}</h3>
                 <p>{this.props.cardDetails.description}</p>
               </div>
               <RaisedButton
-                label={this.state.showFullDescription ? 'Fechar' : 'Ver mais'}
+                label={this.state.showFullDescription ? 'Ver menos' : 'Ver más'}
                 labelPosition="before"
                 icon={this.state.showFullDescription ? <Less/> : <More/>}
                 onClick={() => this.handleFullDescription()}

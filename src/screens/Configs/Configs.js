@@ -15,7 +15,7 @@ const Configs = ({ backsideStyleState, chooseBacksideStyle, showNotification }) 
     chooseBacksideStyle(choice)
     showNotification({
       open: true,
-      message: 'Estilo de cartas alterado com sucesso!',
+      message: 'Estilo de cartas cambiado con éxito!',
       duration: 3000
     })
   }
@@ -27,7 +27,7 @@ const Configs = ({ backsideStyleState, chooseBacksideStyle, showNotification }) 
 
   return(
     <div className="configs">
-      <h1 className="page-title">Escolha o estilo de cartas:</h1>
+      <h1 className="page-title">Elige el estilo de cartas:</h1>
       <Row>
         <Col lg={2} md={3} sm={3} xs={3} offset={['lg',2]}>
           <img

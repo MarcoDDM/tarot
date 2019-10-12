@@ -4,7 +4,7 @@ import './HeaderBar.sass'
 
 const HeaderBar = ({ toogleOpenDrawerMenu }) => (
   <AppBar
-    title="Mi Tirada de Tarot"
+    title="Mi Tarotista Virtual"
     iconClassNameRight="muidocs-icon-navigation-expand-more"
     className="app-head-bar"
     onLeftIconButtonTouchTap={() => toogleOpenDrawerMenu()} />

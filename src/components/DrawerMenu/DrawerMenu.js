@@ -19,7 +19,7 @@ const DrawerMenu = ({ open, onRequestChange, navigate }) => {
 
   const handleMenuItem = route => {
     if(route==='soon'){
-      alert('Em breve...')
+      alert('Estamos trabajando en esa función, gracias por su paciencia...')
       return
     }
 
@@ -34,11 +34,11 @@ const DrawerMenu = ({ open, onRequestChange, navigate }) => {
       open={open}
       onRequestChange={() => handleOnRequestChange()} >
       <MenuItem
-        primaryText="Novo jogo"
+        primaryText="Nueva tirada"
         leftIcon={<New/>}
         onTouchTap={() => handleMenuItem('/')} />
       <MenuItem
-        primaryText="Jogos salvos"
+        primaryText="Tiradas guardadas"
         leftIcon={<SavedGames/>}
         onTouchTap={() => handleMenuItem('/saved-games')} />
       <MenuItem
@@ -47,15 +47,15 @@ const DrawerMenu = ({ open, onRequestChange, navigate }) => {
         onTouchTap={() => handleMenuItem('/arcanums')} />
       <Divider />
       <MenuItem
-        primaryText="Configurações"
+        primaryText="Configuración"
         leftIcon={<Settings/>}
         onTouchTap={() => handleMenuItem('/configs')} />
       <MenuItem
-        primaryText="Dúvidas"
+        primaryText="Dudas"
         leftIcon={<Help/>}
         onTouchTap={() => handleMenuItem('soon')} />
       <MenuItem
-        primaryText="Ajude-nos a melhorar"
+        primaryText="Ayudanos a mejorar"
         leftIcon={<Build/>}
         onTouchTap={() => handleMenuItem('soon')} />
     </Drawer>

@@ -43,7 +43,7 @@ class SaveGame extends Component {
     if(!this.state.canSave) return
 
     if(!this.state.observationsField){
-      this.setState({ textFieldError: 'Preenchimento obrigatório. Dica: digite sua questão.' })
+      this.setState({ textFieldError: 'Requerido: ingrese su pregunta.' })
       return
     }
 
@@ -66,7 +66,7 @@ class SaveGame extends Component {
 
     this.props.showNotification({
       open: true,
-      message: 'Jogo salvo com sucesso!',
+      message: 'Tirada guardada con éxito!',
       duration: 3000
     })
 
@@ -76,9 +76,9 @@ class SaveGame extends Component {
   render(){
     return (
       <div>
-        <h1 className="page-title">Salvar Jogo</h1>
+        <h1 className="page-title">Guardar tirada</h1>
         <TextField
-          floatingLabelText="Observações"
+          floatingLabelText="Observaciones"
           multiLine={true}
           rows={3}
           rowsMax={6}
@@ -90,7 +90,7 @@ class SaveGame extends Component {
           value={this.state.observationsField}
         />
         <RaisedButton
-          label="Salvar"
+          label="Guardar"
           style={styles.button}
           disabled={!this.state.canSave}
           onTouchTap={() => this.handleSaveGame()}
