@@ -1,4 +1,9 @@
-# About
+<div align="center">
+  <img src="soyMarco.png />
+</div>
+
+# Tarot WebApp
+
 This is a simple Tarot game made to learn ReactJS and Redux.
 
 You can see it work at: https://marcoddm.github.io/tarot/
