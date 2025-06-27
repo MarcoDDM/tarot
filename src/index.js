@@ -15,31 +15,50 @@ import {
   SavedGames,
   Arcanums,
   Configs,
+  Register,
+  Login,
 } from './screens'
 
 render(
   <Provider store={store}>
     <Router history={history}>
       <Route path="/" component={AppContainer}>
-        <IndexRoute component={Home}/>
+        <IndexRoute
+          component={Home}
+          onEnter={() => validateRoute('user-auth', store)}
+        />
         <Route
           path="tarot-table"
           component={TarotTable}
-          onEnter={() => validateRoute('spreadtype-state', store)}
+          onEnter={() => { validateRoute('user-auth', store); validateRoute('spreadtype-state', store) }}
         />
         <Route
           path="reading"
           component={Reading}
-          onEnter={() => validateRoute('userchoice-state', store)}
+          onEnter={() => { validateRoute('user-auth', store); validateRoute('userchoice-state', store) }}
         />
         <Route
           path="save-game"
           component={SaveGame}
-          onEnter={() => validateRoute('userchoice-state', store)}
+          onEnter={() => { validateRoute('user-auth', store); validateRoute('userchoice-state', store) }}
         />
-        <Route path="saved-games" component={SavedGames} />
-        <Route path="arcanums" component={Arcanums} />
-        <Route path="configs" component={Configs} />
+        <Route
+          path="saved-games"
+          component={SavedGames}
+          onEnter={() => validateRoute('user-auth', store)}
+        />
+        <Route
+          path="arcanums"
+          component={Arcanums}
+          onEnter={() => validateRoute('user-auth', store)}
+        />
+        <Route
+          path="configs"
+          component={Configs}
+          onEnter={() => validateRoute('user-auth', store)}
+        />
+        <Route path="register" component={Register} />
+        <Route path="login" component={Login} />
       </Route>
     </Router>
   </Provider>,

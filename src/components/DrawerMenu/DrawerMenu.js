@@ -51,6 +51,12 @@ const DrawerMenu = ({ open, onRequestChange, navigate }) => {
         leftIcon={<Settings/>}
         onTouchTap={() => handleMenuItem('/configs')} />
       <MenuItem
+        primaryText="Registro"
+        onTouchTap={() => handleMenuItem('/register')} />
+      <MenuItem
+        primaryText="Login"
+        onTouchTap={() => handleMenuItem('/login')} />
+      <MenuItem
         primaryText="Dudas"
         leftIcon={<Help/>}
         onTouchTap={() => handleMenuItem('soon')} />
