@@ -3,11 +3,13 @@ import spreadTypeState from './spreadType'
 import backsideStyleState from './backsideStyle'
 import notificationState from './notification'
 import storedState from './storage'
+import userState from './user'
 
 export default {
   userChoiceState,
   spreadTypeState,
   backsideStyleState,
   notificationState,
-  storedState
+  storedState,
+  userState
 }

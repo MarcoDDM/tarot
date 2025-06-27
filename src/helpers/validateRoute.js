@@ -12,6 +12,11 @@ export const validateRoute = (rule, store) => {
         store.dispatch(push('/'))
       break
 
+    case 'user-auth':
+      if(!store.getState().userState)
+        store.dispatch(push('/register'))
+      break
+
     default:
       break
   }
